@@ -4,7 +4,7 @@ import asyncComponent from '@/utils/asyncComponent';
 
 import home from '@/pages/home/home';
 
-export default class RouteConfig extends react.Component {
+export default class RouteConfig extends React.Component {
   render() {
     return (
       <HashRouter>
