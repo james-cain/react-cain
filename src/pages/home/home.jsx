@@ -101,8 +101,20 @@ class Home extends React.Component {
       }
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+      return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state), fromJS(nextState));
+    }
+
     componentWillMount() {
       this.initData(this.props);
+    }
+
+    render() {
+      return (
+        <main className="home-container">
+          <PublicHeader title="首页" record />
+        </main>
+      );
     }
 }
 

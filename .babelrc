@@ -1,0 +1,13 @@
+{
+  "presets": ["react"],
+  "plugins": [
+    "syntax-dynamic-import",
+    [
+      "import",
+      {
+        libraryName: "antd-mobile",
+        style: true
+      }
+    ]
+  ]
+}
