@@ -5,9 +5,9 @@ import { Provide } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 import Route from './router';
 import store from './store/store';
-// import './index.css';
-// import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import './utils/setRem';
+import './style/base.css';
 
 FastClick.attach(document.body);
 
