@@ -29,6 +29,10 @@ const publicUrl = publicPath.slice(0, -1);
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
+}
+
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
 if (env.stringified['process.env'].NODE_ENV !== '"production"') {
@@ -57,7 +61,7 @@ module.exports = {
   // You can exclude the *.map files from the build during deployment.
   devtool: shouldUseSourceMap ? 'source-map' : false,
   // In production, we only want to load the polyfills and the app code.
-  entry: [require.resolve('./polyfills'), paths.appIndexJs],
+  entry: ['babel-polyfill', require.resolve('./polyfills'), paths.appIndexJs],
   output: {
     // The build folder.
     path: paths.appBuild,
@@ -95,6 +99,7 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
+      '@': resolve('src'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -148,11 +153,22 @@ module.exports = {
           {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
-            loader: require.resolve('babel-loader'),
-            options: {
+            use: [
+              {
+                loader: require.resolve('babel-loader'),
+                options: {
+                  babelrc: true,
+                  presets: [require.resolve('babel-preset-react-app')],
+                  cacheDirectory: true,
+                  plugins: ["transform-decorators-legacy"],
+                }
+              }
+            ]
+            // loader: require.resolve('babel-loader'),
+            // options: {
               
-              compact: true,
-            },
+            //   compact: true,
+            // },
           },
           // The notation here is somewhat confusing.
           // "postcss" loader applies autoprefixer to our CSS.

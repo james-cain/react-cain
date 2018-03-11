@@ -1,0 +1,5 @@
+@import (less, reference) "../../style/mixin.css";
+
+.home-container {
+    padding-top: 88px;
+}

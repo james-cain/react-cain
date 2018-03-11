@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
-import asyncComponent from '@/utils/asyncComponent';
+// import asyncComponent from '@/utils/asyncComponent';
 
 import home from '@/pages/home/home';
 

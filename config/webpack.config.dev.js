@@ -11,7 +11,11 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const px2rem = require('postcss-px2rem');
 
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
+}
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -35,6 +39,7 @@ module.exports = {
   entry: [
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
+    'babel-polyfill',
     'react-hot-loader/patch',
     // Include an alternative client for WebpackDevServer. A client's job is to
     // connect to WebpackDevServer by a socket and get notified about changes.
@@ -89,6 +94,7 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
+      '@': resolve('src'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).
@@ -143,17 +149,28 @@ module.exports = {
           {
             test: /\.(js|jsx|mjs)$/,
             include: paths.appSrc,
-            loader: require.resolve('babel-loader'),
-            options: {
+            use: [
+              {
+                loader: require.resolve('babel-loader'),
+                options: {
+                  babelrc: true,
+                  presets: [require.resolve('babel-preset-react-app')],
+                  cacheDirectory: true,
+                  plugins: ["transform-decorators-legacy"],
+                }
+              }
+            ]
+            // loader: require.resolve('babel-loader'),
+            // options: {
               
-              // This is a feature of `babel-loader` for webpack (not Babel itself).
-              // It enables caching results in ./node_modules/.cache/babel-loader/
-              // directory for faster rebuilds.
-              cacheDirectory: true,
-              plugins: [
-                'react-hot-loader/babel'
-              ]
-            },
+            //   // This is a feature of `babel-loader` for webpack (not Babel itself).
+            //   // It enables caching results in ./node_modules/.cache/babel-loader/
+            //   // directory for faster rebuilds.
+            //   cacheDirectory: true,
+            //   plugins: [
+            //     'react-hot-loader/babel'
+            //   ]
+            // },
           },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
@@ -187,8 +204,12 @@ module.exports = {
                       ],
                       flexbox: 'no-2009',
                     }),
+                    px2rem({remUnit: 75})// 设计稿根据750px（iphone6）
                   ],
                 },
+              },
+              {
+                loader: require.resolve('less-loader')
               },
             ],
           },

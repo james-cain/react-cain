@@ -1,6 +1,6 @@
 import * as home from './action-type';
 
-let defualtState = {
+let defaultState = {
   orderSum: '',
   name: '',
   phoneNo: '',
