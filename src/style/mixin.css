@@ -3,17 +3,18 @@
 @assets-img: '../assets/images/';
 @base-red: #F20500;
 
+/* flex布局 */
 .flex (@justify-content: center, @align-items: center) when (iskeyword(@justify-content)), (iskeyword(@align-items)) {
   display: flex;
   justify-content: @justify-content;
   align-items: @align-items;
 }
-
+/* 背景 */
 .commonBack (@url) when (isstring(@url)) {
   background: url("@{assets-img}@url") no-repeat center;
   background-size: 100%;
 }
-
+/* 全屏居中 */
 .coverScreen (@position: absolute, @backColor: #fff) when (iskeyword(@position)), (iskeyword(@backColor)) {
   position: @position;
   top: 0;
@@ -24,34 +25,34 @@
   height: 100%;
   background-color: @backColor;
 }
-
+/* 水平居中 */
 .positionCenter (@position: absolute) when (iskeyword(@position)) {
   position: @position;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
 }
-
+/* 水平左对齐 */
 .positionLeft (@position: absolute, @left: @common-wd) when (iskeyword(@position)), (iskeyword(@left)) {
   position: @position;
   top: 50%;
   left: @left;
   transform: translate3d(0, -50%, 0);
 }
-
+/* 水平右对齐 */
 .positionRight (@position: absolute, @right: @common-wd) when (iskeyword(@position)), (iskeyword(@right)) {
   position: @position;
   top: 50%;
   right: @right;
   transform: translate3d(0, -50%, 0);
 }
-
+/* 字体大小、颜色、对齐方式 */
 .font (@font-size, @color: #333, @text-align: left) when (ispixel(@font-size)), (iscolor(@color)), (iskeyword(@text-align)) {
   font-size: @font-size;
   color: @color;
   text-align: @text-align;
 }
-
+/* 宽高 */
 .wh (@w, @h) when (ispixel(@w))or(ispercentage(@w)), (ispixel(@h))or(ispercentage(@h)) {
   width: @w;
   height: @h;

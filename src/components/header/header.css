@@ -1,5 +1,4 @@
 @import (less, reference) "../../style/mixin.css";
-@import "../../assets/iconfonts/iconfont.css";
 
 .header-container{
     background-color: @base-color;

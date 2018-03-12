@@ -1,0 +1,20 @@
+@import (less, reference) "../../style/mixin.css";
+
+.index-logoWrap {
+    position: relative;
+    .wh(100%, 420px);
+    .index-bg {
+        position: relative;
+        .wh(750px, 420px);
+    }
+    .index-sysname {
+        color: #fff;
+        font-size: 60px;
+        .positionLeft(absolute, 35px);
+    }
+    .index-avatar {
+        border-radius: 50%;
+        .wh(84px, 84px);
+        .positionRight(absolute, 40px);
+    }
+}

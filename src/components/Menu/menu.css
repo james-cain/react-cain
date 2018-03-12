@@ -1,0 +1,28 @@
+@import (less, reference) "../../style/mixin.css";
+
+.index-infoWrap {
+    float: left;
+    width: 100%;
+    position: relative;
+    .index-info {
+        .flex(flex-start);
+        margin: 0 15px;
+        margin-top: -30px;
+        background-color: #fff;
+        border-radius: 3px;
+        li {
+            float: left;
+            width: 25%;
+            height: 144px;
+            text-align: center;
+            i {
+                font-size: 56px;
+                color: #ff4c39;
+            }
+            div {
+                font-size: 28px;
+                color: #333;
+            }
+        }
+    }
+}

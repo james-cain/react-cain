@@ -8,6 +8,7 @@ import store from './store/store';
 import registerServiceWorker from './registerServiceWorker';
 import './utils/setRem';
 import './style/base.css';
+import "./assets/iconfonts/iconfont.css";
 
 FastClick.attach(document.body);
 

@@ -28,7 +28,6 @@ export default class PublicHeader extends React.Component {
 
     // 切换左侧导航栏状态
     toggleNav = () => {
-        console.log('click', this.state.navState);
         return this.setState({navState: !this.state.navState});
     }
 
@@ -39,7 +38,7 @@ export default class PublicHeader extends React.Component {
     render() {
         return (
             <header className="header-container">
-                <span className="header-slide-icon icon-catalog" onClick={this.toggleNav}></span>
+                <span className="header-slide-icon iconfont icon-xinyongqia" onClick={this.toggleNav}></span>
                 <span className="header-title" onClick={this.toggleNav}>{this.props.title}</span>
                 {
                 this.props.record&&<NavLink to="/record" exact className="header-link icon-jilu"></NavLink>
