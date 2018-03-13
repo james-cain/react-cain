@@ -111,5 +111,6 @@
   },
   "devDependencies": {
     "postcss-px2rem": "^0.3.0"
-  }
+  },
+  "proxy": "http://b.posfz.com"
 }
