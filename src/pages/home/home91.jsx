@@ -1,17 +1,25 @@
 import React from 'react';
+import { Carousel, Toast } from 'antd-mobile';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import PropTypes from 'prop-types';
+import API from '@/api/api';
 import { getBasicInfo } from '@/store/home91/action';
 import { getMenuData } from '@/store/menu/action';
 import Top from '@/components/Top/top';
 import Menu from '@/components/Menu/menu';
 import mixin, { padStr } from '@/utils/mixin';
+import './home91.css';
 
 @mixin({padStr})
 class Home91 extends React.Component {
     static propTypes = {
         basicData: PropTypes.object.isRequired,
+    }
+
+    state = {
+        data: [],
+        height: 150,
     }
 
     initBasicData = props => {
@@ -20,6 +28,16 @@ class Home91 extends React.Component {
 
     initMenuData = props => {
         this.props.getMenuData();
+    }
+
+    getCurrentUser = async () => {
+        let result = await API.getCurrentUser();
+        console.log(result);
+        if (result.tip) {
+            Toast.info(result.tip, 2, null, false);
+        } else {
+            Toast.info(result.msg, 2, null, false);
+        }
     }
 
     componentWillReceiveProps(nextProps) {
@@ -33,8 +51,12 @@ class Home91 extends React.Component {
     }
 
     componentWillMount() {
+        this.getCurrentUser();
         this.initBasicData(this.props);
         this.initMenuData(this.props);
+        this.setState({
+            data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+        });
     }
 
     render() {
@@ -42,6 +64,39 @@ class Home91 extends React.Component {
             <main className="home-container">
                 <Top basicData={this.props.basicData}/>
                 <Menu menuData={this.props.menuData.menuList} />
+                <div className="index-footerTitle">最新活动</div>
+                <Carousel className="space-carousel"
+                    frameOverflow="visible"
+                    cellSpacing={10}
+                    slideWidth={0.8}
+                    autoplay
+                    infinite
+                    beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+                >
+                {this.state.data.map((val, index) => (
+                    <a
+                        key={val}
+                        href="http://www.alipay.com"
+                        style={{
+                            display: 'block',
+                            position: 'relative',
+                            height: this.state.imgHeight,
+                            boxShadow: '2px 1px 1px rgba(0, 0, 0, 0.2)',
+                        }}
+                    >
+                    <img
+                        src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                        alt=""
+                        style={{ width: '100%', verticalAlign: 'top', height: '120px' }}
+                        onLoad={() => {
+                            // fire window resize event to change height
+                            window.dispatchEvent(new Event('resize'));
+                            this.setState({ imgHeight: 'auto' });
+                        }}
+                    />
+                    </a>
+                ))}
+                </Carousel>
             </main>
         );
     }

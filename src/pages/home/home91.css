@@ -1,12 +1,14 @@
 @import (less, reference) "../../style/mixin.css";
 
-.home-container {
-    padding-top: 88px;
-}
 .index-footerTitle {
     border-top: 20px solid #eee;
     clear: both;
     color: #333;
     font-size: 28px;
     padding: 28px 0 30px 40px;
+    background-color: #fff;
+}
+.space-carousel {
+    background-color: #fff;
+    padding-bottom: 44px;
 }

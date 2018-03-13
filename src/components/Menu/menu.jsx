@@ -7,7 +7,7 @@ export default class Menu extends React.Component {
     static propTypes = {
         menuData: PropTypes.array.isRequired,
     }
-
+    
     shouldComponentUpdate(nextProps, nextState) {
         return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state), fromJS(nextState));
     }
@@ -30,8 +30,11 @@ export default class Menu extends React.Component {
                         menuData.map(function(item) {
                             return (
                                 <li key={item.menuId} onClick={that.handleClick.bind(that, item.url)}>
-                                    <i className={`iconfont ${item.icon}`}></i>
-                                    <div>{item.menuName}</div>
+                                    {/* <i className={`iconfont ${item.icon}`}></i> */}
+                                    <div className="menu-item__icon">
+                                        <img src={require(`../../assets/images/${item.icon}`)} alt=""/>
+                                    </div>
+                                    <div className="menu-item__name">{item.menuName}</div>
                                 </li>
                             );
                         })
