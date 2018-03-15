@@ -8,16 +8,14 @@ class WeApi {
         
         /* eslint no-undef: 0 */
         wx.config({
-            debug: true,
-            appId: wechatConfig.appId,
+            appId: wechatConfig.appid,
             timestamp: wechatConfig.timestamp,
-            nonceStr: wechatConfig.nonceStr,
+            nonceStr: wechatConfig.noncestr,
             signature: wechatConfig.signature,
             jsApiList: ['onMenuShareTimeline', 'checkJsApi']
         });
 
         if (wechatConfig) {
-            console.log(wechatConfig);
             return wechatConfig;
         }
     }

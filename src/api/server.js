@@ -17,7 +17,6 @@ export default class Server {
             Object.keys(params).forEach((obj) => {
                 _option = Object.assign({}, _option, params[obj]);
             });
-            console.log(_option);
             axios.request(_option).then(res => {
                 resolve(typeof res.data === 'object' ? res.data : JSON.parse(res.data));
             }).catch(error => {

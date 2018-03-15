@@ -13,7 +13,7 @@ import "./assets/iconfonts/iconfont.css";
 
 FastClick.attach(document.body);
 
-const weApiConfig = WeApi.getSignatrue({
+WeApi.getSignatrue({
   headers: {
     'content-type': 'application/json'
   },
@@ -23,15 +23,70 @@ const weApiConfig = WeApi.getSignatrue({
 });
 
 /* eslint no-undef: 0 */
-wx.ready(function () {
-  wx.checkJsApi({
-    jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
-    success: function(res) {
-      // 以键值对的形式返回，可用的api值true，不可用为false
-      // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
-      console.log(res);
-    }
-  });
+// wx.ready(function () {
+//   wx.checkJsApi({
+//     jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+//     success: function(res) {
+//       // 以键值对的形式返回，可用的api值true，不可用为false
+//       // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+//       console.log(res);
+//     }
+//   });
+// });
+
+// 分享朋友圈
+wx.onMenuShareTimeline({
+  title: '91卡哥', // 分享标题
+  link: 'http://b.posfz.com/login?id=1', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+  imgUrl: '', // 分享图标
+  success: function () {
+    // 用户确认分享后执行的回调函数
+  },
+  cancel: function () {
+    // 用户取消分享后执行的回调函数
+  }
+});
+
+// 分享给朋友
+wx.onMenuShareAppMessage({
+  title: '91卡哥', // 分享标题
+  desc: '91卡哥分享', // 分享描述
+  link: 'http://b.posfz.com/login?id=1', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+  imgUrl: '', // 分享图标
+  type: '', // 分享类型,music、video或link，不填默认为link
+  dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+  success: function () {
+  // 用户确认分享后执行的回调函数
+  },
+  cancel: function () {
+  // 用户取消分享后执行的回调函数
+  }
+});
+// 分享给QQ
+wx.onMenuShareQQ({
+  title: '91卡哥', // 分享标题
+  desc: '91卡哥分享', // 分享描述
+  link: 'http://b.posfz.com/login?id=1', // 分享链接
+  imgUrl: '', // 分享图标
+  success: function () {
+  // 用户确认分享后执行的回调函数
+  },
+  cancel: function () {
+  // 用户取消分享后执行的回调函数
+  }
+});
+// 分享到QQ空间
+wx.onMenuShareQZone({
+  title: '91卡哥', // 分享标题
+  desc: '91卡哥分享', // 分享描述
+  link: 'http://b.posfz.com/login?id=1', // 分享链接
+  imgUrl: '', // 分享图标
+  success: function () {
+  // 用户确认分享后执行的回调函数
+  },
+  cancel: function () {
+  // 用户取消分享后执行的回调函数
+  }
 });
 
 const render = Component => {
