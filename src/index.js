@@ -21,18 +21,9 @@ const weApiConfig = WeApi.getSignatrue({
     url: 'http://b.posfz.com/index.html'
   }
 });
-/* eslint no-undef: 0 */
-wx.config({
-  debug: true,
-  appId: weApiConfig.appId,
-  timestamp: weApiConfig.timestamp,
-  nonceStr: weApiConfig.nonceStr,
-  signature: weApiConfig.signature,
-  jsApiList: ['onMenuShareTimeline', 'checkJsApi']
-});
 
+/* eslint no-undef: 0 */
 wx.ready(function () {
-  console.log('============');
   wx.checkJsApi({
     jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
     success: function(res) {
