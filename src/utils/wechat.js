@@ -2,7 +2,7 @@ import API from '@/api/api';
 
 class WeApi {
     async getSignatrue(params = {}) {
-        let wechatConfig = API.getSignature({
+        let wechatConfig = await API.getSignature({
             params
         });
         

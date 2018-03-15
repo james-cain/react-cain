@@ -16,9 +16,9 @@ export default class Menu extends React.Component {
         console.log('The link was clicked.', url);
     }
 
-    componentWillMount() {
-        console.log(this.props);
-    }
+    // componentWillMount() {
+    //     console.log(this.props);
+    // }
 
     render() {
         const menuData = this.props.menuData;

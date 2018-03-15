@@ -32,7 +32,6 @@ class Home91 extends React.Component {
 
     getCurrentUser = async () => {
         let result = await API.getCurrentUser();
-        console.log(result);
         if (result.tip) {
             Toast.info(result.tip, 2, null, false);
         } else {
