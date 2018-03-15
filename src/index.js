@@ -11,6 +11,15 @@ import './style/base.css';
 import "./assets/iconfonts/iconfont.css";
 
 FastClick.attach(document.body);
+/* eslint no-undef: 0 */
+wx.config({
+  debug: true,
+  appId: '',
+  timestamp: '',
+  nonceStr: '',
+  signature: '',
+  jsApiList: []
+});
 
 const render = Component => {
   ReactDOM.render(
