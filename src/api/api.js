@@ -42,6 +42,7 @@ class API extends Server {
                     data: params,
                     url: 'http://b.posfz.com/api/wechat/jsapi/signature/json'
                 }
+                throw err;
             }
         } catch (err) {
             throw err;
