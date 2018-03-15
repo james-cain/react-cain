@@ -32,7 +32,7 @@ class API extends Server {
      */
     async getSignature(params = {}) {
         try {
-            let result = await this.axios('post', '/api/wechat/jsapi/signature/json', {}, params);
+            let result = await this.axios('post', '/api/wechat/jsapi/signature/json', params);
             if (result) {
                 return result.data;
             } else {

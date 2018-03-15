@@ -71,7 +71,6 @@ class Home91 extends React.Component {
                     slideWidth={0.8}
                     autoplay
                     infinite
-                    beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
                 >
                 {this.state.data.map((val, index) => (
                     <a

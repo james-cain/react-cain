@@ -4,8 +4,7 @@ export default class Server {
     axios(method, url, params) {
         return new Promise((resolve, reject) => {
             if (typeof params !== 'object') params = {};
-            let _option = params;
-            _option = {
+            let _option = {
                 method,
                 url,
                 baseURL: 'http://b.posfz.com/',
@@ -13,9 +12,12 @@ export default class Server {
                 params: null,
                 data: null,
                 headers: null,
-                withCredentials: true,
-                ...params,
-            }
+                // withCredentials: true,
+            };
+            Object.keys(params).forEach((obj) => {
+                _option = Object.assign({}, _option, params[obj]);
+            });
+            console.log(_option);
             axios.request(_option).then(res => {
                 resolve(typeof res.data === 'object' ? res.data : JSON.parse(res.data));
             }).catch(error => {
@@ -24,7 +26,7 @@ export default class Server {
                 } else {
                     reject(error);
                 }
-            })
+            });
         })
     }
 }

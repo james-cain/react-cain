@@ -14,6 +14,9 @@ import "./assets/iconfonts/iconfont.css";
 FastClick.attach(document.body);
 
 const weApiConfig = WeApi.getSignatrue({
+  headers: {
+    'content-type': 'application/json'
+  },
   data: {
     url: 'http://b.posfz.com/index.html'
   }
@@ -28,8 +31,7 @@ wx.config({
   jsApiList: ['onMenuShareTimeline', 'checkJsApi']
 });
 
-wx.ready(function (e) {
-  console.log(e);
+wx.ready(function () {
   console.log('============');
   wx.checkJsApi({
     jsApiList: ['chooseImage'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
