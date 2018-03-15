@@ -14,7 +14,7 @@ import "./assets/iconfonts/iconfont.css";
 FastClick.attach(document.body);
 
 const weApiConfig = WeApi.getSignatrue({
-  params: {
+  data: {
     url: 'http://b.posfz.com/index.html'
   }
 });
