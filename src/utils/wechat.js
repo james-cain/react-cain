@@ -12,7 +12,12 @@ class WeApi {
             timestamp: wechatConfig.timestamp,
             nonceStr: wechatConfig.noncestr,
             signature: wechatConfig.signature,
-            jsApiList: ['onMenuShareTimeline', 'checkJsApi']
+            jsApiList: [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareQZone'
+            ]
         });
 
         if (wechatConfig) {
