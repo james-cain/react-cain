@@ -12,12 +12,17 @@ export default class Top extends React.Component {
         return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state), fromJS(nextState));
     }
 
+    // componentWillMount() {
+    //     console.log(this.props.basicData);
+    // }
+
     render() {
         return (
             <div className="index-logoWrap">
                 <img src={require(`../../assets/images/${this.props.basicData.imgPath}`)} alt="" className="index-bg" />
-                <div className="index-sysname">{this.props.basicData.sysName}</div>
-                <img src={require(`../../assets/images/${this.props.basicData.avatar}`)} alt="" className="index-avatar"/>
+                <img src={require(`../../assets/images/${this.props.basicData.titlePath}`)} alt="" className="index-title" />
+                {/* <div className="index-sysname">{this.props.basicData.sysName}</div> */}
+                <img src={this.props.basicData.userPosterUrl} alt="" className="index-avatar"/>
             </div>
         );
     }

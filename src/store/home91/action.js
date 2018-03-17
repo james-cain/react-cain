@@ -6,3 +6,12 @@ export const getBasicInfo = () => {
         type: home91.GETBASICDATA,
     }
 }
+
+// 保存图片地址
+export const getAvatar = userPosterUrl => {
+    return {
+        type: home91.GETAVATAR,
+        dataType: 'userPosterUrl',
+        userPosterUrl,
+    }
+}

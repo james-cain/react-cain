@@ -7,6 +7,10 @@
         position: relative;
         .wh(750px, 420px);
     }
+    .index-title {
+        .positionLeft(absolute, 35px);
+        .wh(320px, 84px);
+    }
     .index-sysname {
         color: #fff;
         font-size: 60px;

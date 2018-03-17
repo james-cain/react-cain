@@ -1,5 +1,7 @@
 @import (less, reference) "../../style/mixin.css";
-
+.home-container {
+    overflow-x: hidden;
+}
 .index-footerTitle {
     border-top: 20px solid #eee;
     clear: both;

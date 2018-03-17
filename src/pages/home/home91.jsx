@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import PropTypes from 'prop-types';
 import API from '@/api/api';
-import { getBasicInfo } from '@/store/home91/action';
+import { getBasicInfo, getAvatar } from '@/store/home91/action';
 import { getMenuData } from '@/store/menu/action';
 import Top from '@/components/Top/top';
 import Menu from '@/components/Menu/menu';
@@ -34,7 +34,9 @@ class Home91 extends React.Component {
         let result = await API.getCurrentUser();
         if (result.tip) {
             Toast.info(result.tip, 2, null, false);
+            this.props.getAvatar('http://thirdwx.qlogo.cn/mmopen/vi_32/iccGxFpaaGnaTvU5AC8Be7S2kLVtZDiaeNTNUFrBREtlssQwQnNmXEDSJ9KrZnOt7AWpZmNvX3rXoBwOoZ9YCvYQ/132');
         } else {
+            this.props.getAvatar(result.UserPosterUrl);
             Toast.info(result.msg, 2, null, false);
         }
     }
@@ -106,4 +108,5 @@ export default connect(state => ({
 }), {
     getBasicInfo,
     getMenuData,
+    getAvatar,
 })(Home91);
