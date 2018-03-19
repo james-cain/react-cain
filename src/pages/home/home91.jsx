@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import API from '@/api/api';
 import { getBasicInfo, getAvatar } from '@/store/home91/action';
 import { getMenuData } from '@/store/menu/action';
+import { setUserInfo } from '@/store/info/action';
 import Top from '@/components/Top/top';
 import Menu from '@/components/Menu/menu';
 import mixin, { padStr } from '@/utils/mixin';
@@ -32,6 +33,10 @@ class Home91 extends React.Component {
 
     getCurrentUser = async () => {
         let result = await API.getCurrentUser();
+        const user = {};
+        user.userInfo = result;
+        this.props.setUserInfo(user);
+        console.log(result);
         
         if (result.tip) {
             Toast.info(result.tip, 2, null, false);
@@ -43,7 +48,7 @@ class Home91 extends React.Component {
                 wx.onMenuShareTimeline({
                     title: '91卡哥-朋友圈', // 分享标题
                     link: `${window.location.origin}/login?userid=${result.UserId}`, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                    imgUrl: require('../../assets/images/app_icon.jpg'), // 分享图标
+                    imgUrl: `${window.location.origin}/kage/images/app_icon.jpg`, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
                     },
@@ -57,7 +62,7 @@ class Home91 extends React.Component {
                     title: '91卡哥-朋友', // 分享标题
                     desc: '91卡哥分享-朋友', // 分享描述
                     link: `${window.location.origin}/login?userid=${result.UserId}`, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                    imgUrl: require('../../assets/images/app_icon.jpg'), // 分享图标
+                    imgUrl: `${window.location.origin}/kage/images/app_icon.jpg`, // 分享图标
                     type: '', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                     success: function () {
@@ -74,7 +79,7 @@ class Home91 extends React.Component {
                     title: '91卡哥-QQ', // 分享标题
                     desc: '91卡哥分享-QQ', // 分享描述
                     link: `${window.location.origin}/login?userid=${result.UserId}`, // 分享链接
-                    imgUrl: require('../../assets/images/app_icon.jpg'), // 分享图标
+                    imgUrl: `${window.location.origin}/kage/images/app_icon.jpg`, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
                     },
@@ -87,7 +92,7 @@ class Home91 extends React.Component {
                     title: '91卡哥-空间', // 分享标题
                     desc: '91卡哥分享-空间', // 分享描述
                     link: `${window.location.origin}/login?userid=${result.UserId}`, // 分享链接
-                    imgUrl: require('../../assets/images/app_icon.jpg'), // 分享图标
+                    imgUrl: `${window.location.origin}/kage/images/app_icon.jpg`, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
                     },
@@ -166,6 +171,7 @@ export default connect(state => ({
     basicData: state.basicData,
     menuData: state.menuData,
 }), {
+    setUserInfo,
     getBasicInfo,
     getMenuData,
     getAvatar,

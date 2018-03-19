@@ -1,0 +1,58 @@
+@import (less, reference) "../../style/mixin.css";
+
+.center-nav {
+    .center-top {
+        height: 334px;
+        width: 100%;
+        padding: 50px 42px 58px;
+        box-sizing: border-box;
+        background: #fff;
+        img {
+            height: 94px;
+            width: 94px;
+            border-radius: 50%;
+            float: left;
+        }
+        .center-top__uesr {
+            height: 94px;
+            width: 100%;
+        }
+        &__userInfo {
+            height: 94px;
+            padding: 15px 14px;
+            box-sizing: border-box;
+            color: #0e0e0e;
+            font-size: 26px;
+            float: left;
+            text-align: left;
+            &-no {
+                font-size: 25px;
+                margin-top: 15px;
+            }
+        }
+        .center-top__benefit {
+            margin-top: 60px;
+        }
+        .center-top__title {
+            color: #e1e1e1;
+            font-size: 24px;
+            padding-left: 20px;
+            span {
+                height: 24px;
+                width: 24px;
+                border-radius: 50%;
+                background: #bfbfbf;
+                color: #fff;
+                font-size: 16px;
+                text-align: center;
+                line-height: 24px;
+                margin-left: 20px;
+            }
+        }
+        .center-top__total-benefit {
+            padding-left: 20px;
+            font-size: 35px;
+            color: #eb2422;
+        }
+    }
+}

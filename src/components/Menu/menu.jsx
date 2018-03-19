@@ -1,5 +1,6 @@
 import React from 'react';
 import { is, fromJS } from 'immutable';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './menu.css';
 
@@ -34,7 +35,8 @@ export default class Menu extends React.Component {
                                     <div className="menu-item__icon">
                                         <img src={require(`../../assets/images/${item.icon}`)} alt=""/>
                                     </div>
-                                    <div className="menu-item__name">{item.menuName}</div>
+                                    <NavLink to="/center" exact className="menu-item__name">{item.menuName}</NavLink>
+                                    {/* <div className="menu-item__name">{item.menuName}</div> */}
                                 </li>
                             );
                         })

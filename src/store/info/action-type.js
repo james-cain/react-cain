@@ -1,0 +1,2 @@
+export const GETUSERINFO = 'GETUSERINFO';
+export const SETUSERINFO = 'SETUSERINFO';

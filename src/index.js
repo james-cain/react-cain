@@ -18,7 +18,7 @@ WeApi.getSignatrue({
     'content-type': 'application/json'
   },
   data: {
-    url: 'http://b.posfz.com/index.html'
+    url: `${window.location.href.split('#')[0]}`
   }
 });
 
