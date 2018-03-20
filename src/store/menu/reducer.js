@@ -4,49 +4,44 @@ let defaultState = {
     menuList: [{
         menuId: 'bxyk',
         menuName: '办信用卡',
-        icon: 'card_check@2x.png',
-        url: 'www.baidu.com'
+        icon: 'card_check.png',
+        url: '/'
     }, {
         menuId: 'dksq',
-        menuName: '贷款申请',
-        icon: 'loan@2x.png',
-        url: 'www.baidu.com'
+        menuName: '办卡查询',
+        icon: 'card_query.png',
+        url: '/'
     }, {
         menuId: 'sjsk',
-        menuName: '商家收款',
-        icon: 'violation_payment@2x.png',
-        url: 'www.baidu.com'
+        menuName: '贷款申请',
+        icon: 'violation_payment.png',
+        url: '/'
     }, {
         menuId: 'wzdj',
-        menuName: '违章代缴',
-        icon: 'parking_img@2x.png',
-        url: 'www.baidu.com'
+        menuName: '信用卡还款',
+        icon: 'card_payment.png',
+        url: '/'
     }, {
         menuId: 'bkcx',
-        menuName: '办卡查询',
-        icon: 'card_search@2x.png',
-        url: 'www.baidu.com'
+        menuName: '商家收款',
+        icon: 'get_money.png',
+        url: '/'
     }, {
         menuId: 'xykhk',
-        menuName: '信用卡还款',
-        icon: 'card_repayment@2x.png',
-        url: 'www.baidu.com'
+        menuName: '违章代缴',
+        icon: 'car_payment.png',
+        url: '/'
     }, {
         menuId: 'hyzx',
         menuName: '会员中心',
-        icon: 'member_center@2x.png',
-        url: 'www.baidu.com'
+        icon: 'member_center.png',
+        url: '/center'
     }, {
         menuId: 'hysj',
         menuName: '会员升级',
-        icon: 'paperLevel@2x.png',
-        url: 'www.baidu.com'
-    }, {
-        menuId: 'xtgg',
-        menuName: '系统公告',
-        icon: 'notice_img@2x.png',
-        url: 'www.baidu.com'
-    }, ]
+        icon: 'paperLevel.png',
+        url: '/'
+    } ]
 }
 
 export const menuData = (state = defaultState, action = {}) => {

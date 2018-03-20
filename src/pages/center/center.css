@@ -34,7 +34,7 @@
             margin-top: 60px;
         }
         .center-top__title {
-            color: #e1e1e1;
+            color: #d8d8d8;
             font-size: 24px;
             padding-left: 20px;
             span {
@@ -50,9 +50,72 @@
             }
         }
         .center-top__total-benefit {
+            margin-top: 16px;
             padding-left: 20px;
             font-size: 35px;
             color: #eb2422;
         }
     }
+    .center-middle {
+        height: 360px;
+        width: 100%;
+        background-color: #fff;
+        margin-top: 20px;
+        &__top {
+            height: 180px;
+            width: inherit;
+            padding: 65px 76px 30px;
+            box-sizing: border-box;
+        }
+        &__title {
+            font-size: 23px;
+            color: #999;
+        }
+        &__money {
+            font-weight: bold;
+            color: #333;
+            &-big {
+                font-size: 44px;
+                margin-top: 20px;
+            }
+            &-small {
+                font-size: 30px;
+                margin-top: 16px;
+            }
+        }
+        &__bottom {
+            .flex;
+        }
+        &__flex {
+            flex: 1;
+            height: 180px;
+            width: 50%;
+            padding-top: 44px;
+            padding-bottom: 65px;
+            box-sizing: border-box;
+        }
+        &__left {
+            padding-left: 76px;
+        }
+        &__right {
+            padding-left: 39px;
+        }
+        &__btn {
+            color: #ed4143;
+            font-size: 19px;
+            border-radius: 20px;
+            height: 40px;
+            width: 90px;
+            border: 2px solid #ed4143;
+            background-color: #fff;
+            margin-left: 20px;
+        }
+    }
+    .center-bottom {
+        margin-top: 20px;
+    }
+}
+
+.cain-modal.am-modal-transparent {
+    width: 7rem !important;
 }

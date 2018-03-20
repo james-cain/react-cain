@@ -31,12 +31,10 @@ export default class Menu extends React.Component {
                         menuData.map(function(item) {
                             return (
                                 <li key={item.menuId} onClick={that.handleClick.bind(that, item.url)}>
-                                    {/* <i className={`iconfont ${item.icon}`}></i> */}
-                                    <div className="menu-item__icon">
+                                    <NavLink to={item.url} exact className="menu-item__icon">
                                         <img src={require(`../../assets/images/${item.icon}`)} alt=""/>
-                                    </div>
-                                    <NavLink to="/center" exact className="menu-item__name">{item.menuName}</NavLink>
-                                    {/* <div className="menu-item__name">{item.menuName}</div> */}
+                                    </NavLink>
+                                    <NavLink to={item.url} exact className="menu-item__name">{item.menuName}</NavLink>
                                 </li>
                             );
                         })

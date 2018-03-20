@@ -117,6 +117,7 @@ class Home91 extends React.Component {
     }
 
     componentWillMount() {
+        document.title = '91卡哥';
         this.getCurrentUser();
         this.initBasicData(this.props);
         this.initMenuData(this.props);
