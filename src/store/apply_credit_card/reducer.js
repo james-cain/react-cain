@@ -15,7 +15,12 @@ export const applyCreditCardData = (data = defaultData, action = {}) => {
             console.log(data);
             return data;
         case ApplyCreditCardData.SETAPPLYCREDITCARDDATA:
-            const dataStore = {...data, ...action.data}
+            let banksGridData = action.data.map(function(bank) {
+                return {icon: bank.BankIconUrl, text: bank.BankName}
+            });
+            const dataStore = {...data, ...{bankList: banksGridData}};
+            console.log('异步获取到的stroe');
+            console.log(dataStore);
             return dataStore;
         default:
             return data;
