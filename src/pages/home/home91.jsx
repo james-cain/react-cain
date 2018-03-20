@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel, Toast } from 'antd-mobile';
+import { Carousel } from 'antd-mobile';
 import { connect } from 'react-redux';
 import { is, fromJS } from 'immutable';
 import PropTypes from 'prop-types';
@@ -39,7 +39,7 @@ class Home91 extends React.Component {
         console.log(result);
         
         if (result.tip) {
-            Toast.info(result.tip, 2, null, false);
+            // Toast.info(result.tip, 2, null, false);
             this.props.getAvatar('http://thirdwx.qlogo.cn/mmopen/vi_32/iccGxFpaaGnaTvU5AC8Be7S2kLVtZDiaeNTNUFrBREtlssQwQnNmXEDSJ9KrZnOt7AWpZmNvX3rXoBwOoZ9YCvYQ/132');
         } else {
             /* eslint no-undef: 0 */
@@ -48,7 +48,7 @@ class Home91 extends React.Component {
                 wx.onMenuShareTimeline({
                     title: '91卡哥-朋友圈', // 分享标题
                     link: `${window.location.origin}/login?userid=${result.UserId}`, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                    imgUrl: `${window.location.origin}/kage/images/app_icon.jpg`, // 分享图标
+                    imgUrl: `/static/images/app_icon.jpg`, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
                     },
@@ -62,7 +62,7 @@ class Home91 extends React.Component {
                     title: '91卡哥-朋友', // 分享标题
                     desc: '91卡哥分享-朋友', // 分享描述
                     link: `${window.location.origin}/login?userid=${result.UserId}`, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                    imgUrl: `${window.location.origin}/kage/images/app_icon.jpg`, // 分享图标
+                    imgUrl: `/static/images/app_icon.jpg`, // 分享图标
                     type: '', // 分享类型,music、video或link，不填默认为link
                     dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                     success: function () {
@@ -79,7 +79,7 @@ class Home91 extends React.Component {
                     title: '91卡哥-QQ', // 分享标题
                     desc: '91卡哥分享-QQ', // 分享描述
                     link: `${window.location.origin}/login?userid=${result.UserId}`, // 分享链接
-                    imgUrl: `${window.location.origin}/kage/images/app_icon.jpg`, // 分享图标
+                    imgUrl: `/static/images/app_icon.jpg`, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
                     },
@@ -92,7 +92,7 @@ class Home91 extends React.Component {
                     title: '91卡哥-空间', // 分享标题
                     desc: '91卡哥分享-空间', // 分享描述
                     link: `${window.location.origin}/login?userid=${result.UserId}`, // 分享链接
-                    imgUrl: `${window.location.origin}/kage/images/app_icon.jpg`, // 分享图标
+                    imgUrl: `/static/images/app_icon.jpg`, // 分享图标
                     success: function () {
                     // 用户确认分享后执行的回调函数
                     },
@@ -102,7 +102,7 @@ class Home91 extends React.Component {
                 });
             });
             this.props.getAvatar(result.UserPosterUrl);
-            Toast.info(result.msg, 2, null, false);
+            // Toast.info(result.msg, 2, null, false);
         }
     }
 
@@ -122,7 +122,7 @@ class Home91 extends React.Component {
         this.initBasicData(this.props);
         this.initMenuData(this.props);
         this.setState({
-            data: ['AiyWuByWklrrUDlFignR', 'TekJlZRVCjLFexlOCuWn', 'IJOtIlfsYdTyaDTRVrLI'],
+            data: ['carousel1.png'],
         });
     }
 
@@ -135,9 +135,10 @@ class Home91 extends React.Component {
                 <Carousel className="space-carousel"
                     frameOverflow="visible"
                     cellSpacing={10}
-                    slideWidth={0.8}
+                    slideWidth={0.9}
                     autoplay
                     infinite
+                    dots={false}
                 >
                 {this.state.data.map((val, index) => (
                     <a
@@ -151,7 +152,7 @@ class Home91 extends React.Component {
                         }}
                     >
                     <img
-                        src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                        src={`/static/images/carousel/${val}`}
                         alt=""
                         style={{ width: '100%', verticalAlign: 'top', height: '120px' }}
                         onLoad={() => {

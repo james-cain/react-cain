@@ -7,7 +7,7 @@ export default class Server {
             let _option = {
                 method,
                 url,
-                baseURL: 'http://b.posfz.com/',
+                // baseURL: 'http://b.posfz.com/',
                 timeout: 30000,
                 params: null,
                 data: null,

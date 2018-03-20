@@ -32,7 +32,7 @@ export default class Menu extends React.Component {
                             return (
                                 <li key={item.menuId} onClick={that.handleClick.bind(that, item.url)}>
                                     <NavLink to={item.url} exact className="menu-item__icon">
-                                        <img src={require(`../../assets/images/${item.icon}`)} alt=""/>
+                                        <img src={`/static/images/main_menu/${item.icon}`} alt=""/>
                                     </NavLink>
                                     <NavLink to={item.url} exact className="menu-item__name">{item.menuName}</NavLink>
                                 </li>

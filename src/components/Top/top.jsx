@@ -19,8 +19,8 @@ export default class Top extends React.Component {
     render() {
         return (
             <div className="index-logoWrap">
-                <img src={require(`../../assets/images/${this.props.basicData.imgPath}`)} alt="" className="index-bg" />
-                <img src={require(`../../assets/images/${this.props.basicData.titlePath}`)} alt="" className="index-title" />
+                <img src={`/static/images/header/${this.props.basicData.imgPath}`} alt="" className="index-bg" />
+                {/* <img src={require(`../../assets/images/${this.props.basicData.titlePath}`)} alt="" className="index-title" /> */}
                 {/* <div className="index-sysname">{this.props.basicData.sysName}</div> */}
                 <img src={this.props.basicData.userPosterUrl} alt="" className="index-avatar"/>
             </div>

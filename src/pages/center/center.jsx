@@ -27,35 +27,42 @@ class Center extends React.Component {
         menu: [],
     }
 
+    componentWillReceiveProps(nextProps) {
+        console.log(11111111111111)
+        console.log(nextProps.history);
+        console.log(222222222222222222)
+    }
+
     componentWillMount() {
         document.title = '会员中心';
+        const userInfo = this.props.userInfo.userInfo ? this.props.userInfo.userInfo : {};
         console.log('come inot center');
         console.log(this.props.userInfo);
         const list = [{
-            icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+            icon: '/static/images/center_menu/bill_manager.png',
             text: '订单管理'
         }, {
-            icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+            icon: '/static/images/center_menu/information.png',
             text: '个人信息'
         }, {
-            icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+            icon: '/static/images/center_menu/mod_card.png',
             text: '修改结算卡'
         }, {
-            icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+            icon: '/static/images/center_menu/client.png',
             text: '专属客服'
         }, {
-            icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+            icon: '/static/images/center_menu/sys_broadcast.png',
             text: '系统公告'
         }, {
-            icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+            icon: '/static/images/center_menu/update_info.png',
             text: '更新资料'
         }, {
-            icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
+            icon: '/static/images/center_menu/introduction.png',
             text: '新手指引'
         }];
-        // this.setState({
-        //     user: this.props.userInfo.userInfo
-        // });
+        this.setState({
+            user: userInfo
+        });
         this.setState({
             menu: list
         });
@@ -90,39 +97,41 @@ class Center extends React.Component {
             <div className="center-nav">
                 <div className="center-top">
                     <div className="center-top__uesr">
-                        {/* <img src={this.state.user.UserPosterUrl} alt="" /> */}
+                        <img src={this.state.user.UserPosterUrl} alt="" />
                         <div className="center-top__userInfo">
-                            <div className="center-top__userInfo-username">xiexiexie</div>
-                            <div className="center-top__userInfo-no">编号：111111</div>
-                            {/* <div className="center-top__userInfo-username">{this.state.user.UserName}</div>
-                            <div className="center-top__userInfo-no">编号：{this.state.user.UserNo}</div> */}
+                            {/* <div className="center-top__userInfo-username">xiexiexie</div>
+                            <div className="center-top__userInfo-no">编号：111111</div> */}
+                            <div className="center-top__userInfo-username">{this.state.user.UserName}</div>
+                            <div className="center-top__userInfo-no">编号：{this.state.user.UserNo}</div>
                         </div>
                     </div>
                     <div className="center-top__benefit">
-                        <div className="center-top__title">累计收益（元）<span onClick={this.showModal('modalOpen')}>？</span></div>
-                        <div className="center-top__total-benefit">+0</div>
-                        {/* <div className="center-top__total-benefit">+{this.state.user.UserTotalBenefit}</div> */}
+                        <div className="center-top__title">累计收益（元）
+                            <i className="iconfont icon-iconfontwenhao" onClick={this.showModal('modalOpen')}></i>
+                        </div>
+                        {/* <div className="center-top__total-benefit">+0</div> */}
+                        <div className="center-top__total-benefit">+{this.state.user.UserTotalBenefit ? this.state.user.UserTotalBenefit : 0}</div>
                     </div>
                 </div>
                 <div className="center-middle">
                     <div className="center-middle__top">
                         <div className="center-middle__title">可提现总额（元）</div>
                         <div className="center-middle__money-big">
-                            0.00
+                            {this.state.user.UserShareBenefitMoney && this.state.user.UserRedPaperMoney ? (this.state.user.UserShareBenefitMoney + this.state.user.UserRedPaperMoney) : 0}
                         </div>
                     </div>
                     <div className="center-middle__bottom">
                         <div className="center-middle__flex center-middle__left">
                             <div className="center-middle__title">分润账户（元）</div>
                             <div className="center-middle__money-small">
-                                0.00
+                                <div>{this.state.user.UserShareBenefitMoney ? this.state.user.UserShareBenefitMoney : 0}</div>
                                 <button className="center-middle__btn">提现</button>
                             </div>
                         </div>
                         <div className="center-middle__flex center-middle__right">
                             <div className="center-middle__title">红包账户（元）</div>
                             <div className="center-middle__money-small">
-                                0.00
+                                <div>{this.state.user.UserRedPaperMoney ? this.state.user.UserRedPaperMoney : 0}</div>
                                 <button className="center-middle__btn">提现</button>
                             </div>
                         </div>

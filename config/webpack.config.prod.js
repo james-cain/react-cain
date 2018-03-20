@@ -9,6 +9,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
@@ -278,6 +279,14 @@ module.exports = {
         minifyURLs: true,
       },
     }),
+    // copy custom static assets
+    new CopyWebpackPlugin([
+      {
+        from: resolve('../static'),
+        to: 'static',
+        ignore: ['.*']
+      }
+    ]),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.

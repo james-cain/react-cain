@@ -5,7 +5,7 @@ let defaultState = {
         menuId: 'bxyk',
         menuName: '办信用卡',
         icon: 'card_check.png',
-        url: '/'
+        url: '/applyCreditCard'
     }, {
         menuId: 'dksq',
         menuName: '办卡查询',

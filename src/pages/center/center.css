@@ -37,6 +37,10 @@
             color: #d8d8d8;
             font-size: 24px;
             padding-left: 20px;
+            i {
+                font-size: 24px;
+                color: #bfbfbf;
+            }
             span {
                 height: 24px;
                 width: 24px;
@@ -81,6 +85,11 @@
             &-small {
                 font-size: 30px;
                 margin-top: 16px;
+                div {
+                    height: 40px;
+                    line-height: 40px;
+                    display: inline-block;
+                }
             }
         }
         &__bottom {

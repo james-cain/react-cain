@@ -48,6 +48,29 @@ class API extends Server {
             throw err;
         }
     }
+
+    /**
+     * 返回config权限配置信息
+     *  
+     */
+    async getApplyBanks(params = {}) {
+        try {
+            let result = await this.axios('get', '/api/bank/json/');
+            if (result && result.code === 0) {
+                return result.data;
+            } else {
+                let err = {
+                    tip: '获取权限信息失败',
+                    response: result,
+                    data: params,
+                    url: '/api/bank/json/'
+                }
+                throw err;
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
 }
 
 export default new API();

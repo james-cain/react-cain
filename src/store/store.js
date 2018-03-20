@@ -4,10 +4,11 @@ import * as proData from './production/reducer';
 import * as basicData from './home91/reducer';
 import * as menuData from './menu/reducer';
 import * as user from './info/reducer';
+import * as applyCreditCardData from './apply_credit_card/reducer';
 import thunk from 'redux-thunk';
 
 let store = createStore(
-  combineReducers({ ...formData, ...proData, ...basicData, ...menuData, ...user }),
+  combineReducers({ ...formData, ...proData, ...basicData, ...menuData, ...user, ...applyCreditCardData }),
   applyMiddleware(thunk)
 );
 

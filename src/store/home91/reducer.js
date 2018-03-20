@@ -1,7 +1,7 @@
 import * as home91 from './action-type';
 
 let defaultState = {
-    imgPath: 'home_bg@2x.png',
+    imgPath: 'header.png',
     titlePath: 'app_title.png',
     // sysName: '91卡哥',
     userPosterUrl: ''

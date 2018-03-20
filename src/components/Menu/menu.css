@@ -13,11 +13,11 @@
         li {
             float: left;
             width: 25%;
-            height: 144px;
+            height: 186px;
             text-align: center;
             .menu-item__icon {
                 img {
-                    .wh(56px, 56px);
+                    .wh(98px, 98px);
                     margin-top: 44px;
                 }
             }
