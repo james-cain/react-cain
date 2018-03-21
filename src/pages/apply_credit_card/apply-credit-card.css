@@ -1,7 +1,88 @@
+@import (less, reference) "../../style/mixin.css";
 
-.img-block {
-    object-fit: fill;
+.apply-credit-card-nav {
+    .apply-credit-card-top {
+        height: 302px;
+        width: 100%;
+        img {
+            height: inherit;
+            width: inherit;
+        }
+    }
+    .apply-credit-card-recommend {
+        height: 340px;
+        width: 100%;
+        padding: 20px 16px 28px;
+        background-color: #fff;
+        &__left {
+            height: 292px;
+            width: 318px;
+            float: left;
+        }
+        &__right {
+            height: 292px;
+            width: 396px;
+            float: left;
+            margin-left: 4px;
+            &-block {
+                height: 144px;
+                width: inherit;
+            }
+            .mt4 {
+                margin-top: 4px;
+            }
+        }
+        .img-block-big {
+            height: 292px;
+            width: 318px;
+            border-radius: 14px;
+        }
+        .img-block-small {
+            height: 144px;
+            width: 396px;
+            border-radius: 6px;
+        }
+    }
+    .placeholder {
+        width: 374px;
+        height: 146px;
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+        .flex;
+        &:nth-of-type(1) {
+            border-top: 1px solid #eee;
+        }
+        &:nth-of-type(2) {
+            border-top: 1px solid #eee;
+        }
+        &:nth-of-type(2n+1) {
+            border-right: 1px solid #eee;
+        }
+        .pic {
+            width: 122px;
+            text-align: center;
+            img {
+                width: 72px;
+                height: 72px;
+            }
+        }
+        .word-nav {
+            flex: 1;
+            font-size: 32px;
+            color: #000;
+            .company-desc {
+                color: #999;
+                font-size: 28px;
+            }
+        }
+    }
 }
 
 .sub-title {
+    height: 78px;
+    line-height: 78px;
+    font-size: 34px;
+    font-weight: bold;
+    padding: 0 26px;
+    background: #fff;
 }

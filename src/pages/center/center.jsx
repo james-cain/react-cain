@@ -28,9 +28,7 @@ class Center extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(11111111111111)
         console.log(nextProps.history);
-        console.log(222222222222222222)
     }
 
     componentWillMount() {

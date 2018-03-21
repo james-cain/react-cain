@@ -1,0 +1,38 @@
+@import (less, reference) "../../style/mixin.css";
+
+.credit-card-img {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 130px;
+}
+
+.credit-card-btn-nav {
+    position: fixed;
+    background-color: #fff;
+    height: 128px;
+    width: 750px;
+    padding: 20px 22px;
+    left: 0;
+    bottom: 0;
+    .credit-card-btn{
+        &__guide {
+            border-radius: 10px;
+            font-size: 32px;
+            width: 344px;
+            height: 88px;
+            border: 1px solid #ed4143;
+            background-color: #fff;
+            color: #ed4143;
+        }
+        &__apply {
+            margin-left: 18px;
+            border-radius: 10px;
+            font-size: 32px;
+            width: 344px;
+            height: 88px;
+            border: 1px solid #ed4143;
+            background-color: #ed4143;
+            color: #fff;
+        }
+    }
+}
