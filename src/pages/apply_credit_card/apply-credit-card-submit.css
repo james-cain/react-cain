@@ -1,0 +1,80 @@
+@import (less, reference) "../../style/mixin.css";
+
+.submit-credit-card {
+    &-img {
+        height: 196px;
+        width: 100%;
+    }
+}
+
+.title-nav {
+    height: 76px;
+    line-height: 76px;
+    width: 100%;
+    padding: 0 24px;
+    font-size: 28px;
+    color: #888;
+    background-color: #fff;
+    span {
+        padding: 15px 5px;
+        background-color: #f4452d;
+        margin-right: 18px;
+        display: inline-block;
+        vertical-align: text-top;
+    }
+}
+
+.submit-credit-card-info {
+    height: 745px;
+    width: 100%;
+    position: relative;
+    padding: 0 48px;
+    background-color: #fff;
+    color: #a5a5a5;
+    font-size: 24px;
+    .apply-btn {
+        position: absolute;
+        left: 178px;
+        bottom: 0;
+        height: 60px;
+        width: 172px;
+        background-color: #e5433f;
+        color: #fff;
+        border-radius: 10px;
+        border: 1px solid #e5433f;
+        font-size: 26px;
+    }
+    &__desc {
+        line-height: 36px;
+    }
+    &__nav {
+        width: 528px;
+        height: 503px;
+        position: absolute;
+        left: 114px;
+        top: 175px;
+    }
+    &__nav-bg {
+        width: 528px;
+        height: 97px;
+        border-top: 1px solid #d7d7d7;
+        line-height: 97px;
+        .flex;
+        &:nth-of-type(4) {
+            border-bottom: 1px solid #d7d7d7;
+        }
+        .input-icon {
+            height: 97px;
+            width: 100px;
+            color: #4e4e4e;
+            text-align: center;
+            font-size: 40px;
+        }
+        .input-info {
+            flex: 1;
+            height: 93px;
+            border: 0;
+            font-size: 30px;
+        }
+    }
+}

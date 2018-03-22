@@ -50,7 +50,30 @@ class API extends Server {
     }
 
     /**
-     * 返回config权限配置信息
+     * 生成申请银行卡记录
+     *  
+     */
+    async produceApplyInfo(params = {}) {
+        try {
+            let result = await this.axios('post', '/api/creditcardorders/json/', params);
+            if (result) {
+                return result.data;
+            } else {
+                let err = {
+                    tip: '生成申请银行卡记录失败',
+                    response: result,
+                    data: params,
+                    url: 'http://b.posfz.com/api/creditcardorders/json/'
+                }
+                throw err;
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
+    
+    /**
+     * 返回贷款银行配置信息
      *  
      */
     async getApplyBanks(params = {}) {

@@ -8,7 +8,6 @@ class WeApi {
         
         /* eslint no-undef: 0 */
         wx.config({
-            debug: true,
             appId: wechatConfig.appid,
             timestamp: wechatConfig.timestamp,
             nonceStr: wechatConfig.noncestr,

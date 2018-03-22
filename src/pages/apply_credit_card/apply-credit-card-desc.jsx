@@ -5,7 +5,8 @@ import './apply-credit-card-desc.css';
 
 class ApplyCraditCardDesc extends React.Component {
     state = {
-        bankDesc: {}
+        bankDesc: {},
+        id: ''
     }
 
     componentWillMount() {
@@ -19,7 +20,8 @@ class ApplyCraditCardDesc extends React.Component {
         }
         // const bankDesc = match.params.id ? this.props.applyCreditCardData.bankList[match.params.id] : {};
         this.setState({
-            bankDesc
+            bankDesc,
+            id: match.params.id
         });
     }
 
@@ -29,7 +31,9 @@ class ApplyCraditCardDesc extends React.Component {
                 <img className="credit-card-img" src={this.state.bankDesc.bankDetailImageUrl} alt="" />
                 <div className="credit-card-btn-nav">
                     <button className="credit-card-btn__guide">申请指南</button>
-                    <button className="credit-card-btn__apply" onClick={() => window.location.href = this.state.bankDesc.bankApplyUrl}>我要申请</button>
+                    <button className="credit-card-btn__apply"
+                        onClick={() => this.props.history.push(`/applyCreditCardSubmit/${this.state.id}`)}
+                        >我要申请</button>
                 </div>
             </div>
         )
