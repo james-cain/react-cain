@@ -25,13 +25,17 @@
 }
 
 .submit-credit-card-info {
-    height: 745px;
+    height: 849px;
     width: 100%;
     position: relative;
     padding: 0 48px;
     background-color: #fff;
     color: #a5a5a5;
     font-size: 24px;
+    &__img {
+        height: 134px;
+        width: 100%;
+    }
     .apply-btn {
         position: absolute;
         left: 178px;
@@ -46,13 +50,14 @@
     }
     &__desc {
         line-height: 36px;
+        margin-top: 20px;
     }
     &__nav {
         width: 528px;
         height: 503px;
         position: absolute;
         left: 114px;
-        top: 175px;
+        top: 279px;
     }
     &__nav-bg {
         width: 528px;

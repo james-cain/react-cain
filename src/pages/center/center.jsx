@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { Modal, Grid } from 'antd-mobile';
 // import { is, fromJS } from 'immutable';
 import PropTypes from 'prop-types';
@@ -91,6 +92,14 @@ class Center extends React.Component {
 
     jumpToCenterSubPage = (el) => {
         console.log(el);
+        switch (el.text) {
+            case '专属客服':
+                this.props.history.push('/exclusiveService');
+                break;
+            default:
+                this.props.history.push('/');
+                break;
+        }
     }
 
     render() {
@@ -139,7 +148,7 @@ class Center extends React.Component {
                     </div>
                 </div>
                 <div className="center-bottom">
-                    <Grid data={this.state.menu} hasLine={false} onClick={_el => this.jumpToCenterSubPage.bind(this, _el)} />
+                    <Grid data={this.state.menu} hasLine={false} onClick={this.jumpToCenterSubPage} />
                 </div>
                 <Modal
                     className="cain-modal"
@@ -165,8 +174,8 @@ class Center extends React.Component {
     }
 }
 
-export default connect(state => ({
+export default withRouter(connect(state => ({
     userInfo: state.user,
 }), {
     getUserInfo
-})(Center);
+})(Center));

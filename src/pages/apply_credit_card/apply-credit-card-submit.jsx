@@ -136,10 +136,11 @@ class ApplyCreditCardSubmit extends React.Component {
     render() {
         return (
             <div className="submit-credit-card">
-                <img className="submit-credit-card-img" src={'/static/images/creditcard/header.png'} alt="" />
+                <img className="submit-credit-card-img" src={'/static/images/creditcard/submit-header.png'} alt="" />
                 <Title titleName="申请人基本信息" />
                 <div className="submit-credit-card-info">
-                    <span className="submit-credit-card-info__desc">请务必填写申请人的真实信息。身份证号码一定要准确，手机号必须能联系到申请人本人。</span>
+                    <img class="submit-credit-card-info__img" src={'/static/images/creditcard/info-msg.png'} alt="" />
+                    <span className="submit-credit-card-info__desc">注：在平台输入的申请必须与银行申请填写的信息一致，否则视为无效，将无法结算佣金！</span>
                     <div className="submit-credit-card-info__nav">
                         <div className="submit-credit-card-info__nav-bg">
                             <i className="input-icon iconfont icon-ren"></i>

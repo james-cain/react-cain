@@ -1,19 +1,21 @@
 @import (less, reference) "../../style/mixin.css";
 
 .exclusive-service-card {
-  padding: 20px 20px 0;
+  margin: 20px 20px 0;
   background-color: #fff;
   height: 348px;
-  width: 100%;
+  width: 710px;
   .flex;
   flex-direction: column;
   img {
     height: 150px;
     width: 150px;
     margin-top: 17px;
+    border-radius: 50%;
   }
   &__name {
     height: 96px;
+    line-height: 96px;
     font-size: 32px;
     color: #333;
   }
@@ -21,5 +23,97 @@
     flex: 1;
     color: #666;
     font-size: 26px;
+    line-height: 50px;
+  }
+}
+
+.exclusive-service-btn {
+  margin: 0 20px;
+  background-color: #f5fbfd;
+  width: 710px;
+  height: 100px;
+  .flex;
+  &__nav {
+    height: 80px;
+    margin: 10px 0;
+    flex: 1;
+    .flex;
+    flex-direction: column;
+  }
+  .icon-wx {
+    font-size: 38px;
+  }
+  .icon-call {
+    font-size: 38px;
+  }
+  &__wx {
+    color: #00ce12;
+    font-size: 26px;
+    flex: 1;
+    border-right: 1px solid #eee;
+  }
+  &__tel {
+    color: #0095fb;
+    font-size: 26px;
+    height: 30px;
+    a {
+      color: #0095fb;
+    }
+  }
+}
+
+.modal-nav {
+  height: 864px;
+  width: 100%;
+  padding: 0 20px;
+  background-color: #fff;
+
+  &__title {
+    height: 90px;
+    line-height: 90px;
+    color: #333;
+    font-size: 28px;
+    padding: 0 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    position: relative;
+    .icon-guanbi {
+      position: absolute;
+      right: 32px;
+      font-size: 46px;
+      color: #999;
+    }
+  }
+  &__content {
+    height: 660px;
+    width: 100%;
+    .flex;
+    flex-direction: column;
+    &-qrcode {
+      height: 395px;
+      width: 395px;
+      margin-top: 53px;
+      margin-bottom: 13px;
+    }
+    &-desc {
+      height: 112px;
+      color: #999;
+      font-size: 22px;
+      padding: 45px;
+    }
+    &-wxno {
+      color: #333;
+      font-size: 26px;
+      flex: 1;
+    }
+  }
+  &__btn {
+    height: 86px;
+    color: #fff;
+    font-size: 34px;
+    background-color: #ed4143;
+    border-radius: 10px;
+    width: 710px;
+    border: 0px;
   }
 }
