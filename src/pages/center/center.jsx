@@ -34,7 +34,6 @@ class Center extends React.Component {
     componentWillMount() {
         document.title = '会员中心';
         const userInfo = this.props.userInfo.userInfo ? this.props.userInfo.userInfo : {};
-        console.log('come inot center');
         console.log(this.props.userInfo);
         const list = [{
             icon: '/static/images/center_menu/bill_manager.png',
@@ -90,6 +89,10 @@ class Center extends React.Component {
         }
     }
 
+    jumpToCenterSubPage = (el) => {
+        console.log(el);
+    }
+
     render() {
         return (
             <div className="center-nav">
@@ -136,7 +139,7 @@ class Center extends React.Component {
                     </div>
                 </div>
                 <div className="center-bottom">
-                    <Grid data={this.state.menu} hasLine={false} onClick={_el => console.log(_el)} />
+                    <Grid data={this.state.menu} hasLine={false} onClick={_el => this.jumpToCenterSubPage.bind(this, _el)} />
                 </div>
                 <Modal
                     className="cain-modal"

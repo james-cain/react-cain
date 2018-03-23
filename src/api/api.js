@@ -17,7 +17,7 @@ class API extends Server {
                     tip: '授权失败',
                     response: result,
                     data: params,
-                    url: 'http://b.posfz.com/api/user/json/current'
+                    url: '/api/user/json/current'
                 }
                 throw err;
             }
@@ -40,7 +40,7 @@ class API extends Server {
                     tip: '获取权限信息失败',
                     response: result,
                     data: params,
-                    url: 'http://b.posfz.com/api/wechat/jsapi/signature/json'
+                    url: '/api/wechat/jsapi/signature/json'
                 }
                 throw err;
             }
@@ -63,7 +63,7 @@ class API extends Server {
                     tip: '生成申请银行卡记录失败',
                     response: result,
                     data: params,
-                    url: 'http://b.posfz.com/api/creditcardorders/json/'
+                    url: '/api/creditcardorders/json/'
                 }
                 throw err;
             }
@@ -87,6 +87,29 @@ class API extends Server {
                     response: result,
                     data: params,
                     url: '/api/bank/json/'
+                }
+                throw err;
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * 返回上级用户信息
+     * 
+     */
+    async getGrandUserInfo(params = {}) {
+        try {
+            let result = await this.axios('get', '/api/user/json/parent');
+            if (result && result.code === 0) {
+                return result.data;
+            } else {
+                let err = {
+                    tip: '获取上级用户信息失败',
+                    response: result,
+                    data: params,
+                    url: '/api/user/json/parent'
                 }
                 throw err;
             }

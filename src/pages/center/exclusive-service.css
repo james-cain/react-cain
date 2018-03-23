@@ -1,0 +1,25 @@
+@import (less, reference) "../../style/mixin.css";
+
+.exclusive-service-card {
+  padding: 20px 20px 0;
+  background-color: #fff;
+  height: 348px;
+  width: 100%;
+  .flex;
+  flex-direction: column;
+  img {
+    height: 150px;
+    width: 150px;
+    margin-top: 17px;
+  }
+  &__name {
+    height: 96px;
+    font-size: 32px;
+    color: #333;
+  }
+  &__orderNo {
+    flex: 1;
+    color: #666;
+    font-size: 26px;
+  }
+}

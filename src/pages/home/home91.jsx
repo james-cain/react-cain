@@ -40,7 +40,7 @@ class Home91 extends React.Component {
         
         if (result.tip) {
             // Toast.info(result.tip, 2, null, false);
-            this.props.getAvatar('http://thirdwx.qlogo.cn/mmopen/vi_32/iccGxFpaaGnaTvU5AC8Be7S2kLVtZDiaeNTNUFrBREtlssQwQnNmXEDSJ9KrZnOt7AWpZmNvX3rXoBwOoZ9YCvYQ/132');
+            this.props.getAvatar('/static/images/defaultAvatar.png');
         } else {
             /* eslint no-undef: 0 */
             wx.ready(function () {
