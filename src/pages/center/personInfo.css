@@ -1,0 +1,62 @@
+@import (less, reference) "../../style/mixin.css";
+
+.person-info {
+    &__top {
+        height: 200px;
+        width: 100%;
+        background-image: url('/static/images/header/person-header.png');
+        /* background-size: 200px 750px; */
+        background-repeat: no-repeat;
+        position: relative;
+        .flex;
+        img {
+            flex: 1;
+            margin-left: 40px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+        }
+        &-name {
+            width: 600px;
+            font-size: 36px;
+            color: #fff;
+            margin-left: 10px; 
+        }
+    }
+}
+
+.title-nav {
+    height: 100px;
+    line-height: 100px;
+    width: 100%;
+    padding: 0 24px;
+    font-size: 28px;
+    color: #666;
+    background-color: #eee;
+    span {
+        padding: 14px 5px;
+        background-color: #f4452d;
+        margin-right: 18px;
+        display: inline-block;
+        vertical-align: text-top;
+    }
+}
+
+.person-info__resource-nav {
+    .flex;
+    background-color: #fff;
+    height: 100px;
+    line-height: 100px;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 30px;
+    span {
+        font-weight: bold;
+        padding-left: 30px;
+        width: 178px;
+    }
+    .input-info {
+        height: 96px;
+        flex: 1;
+        border: 0px;
+    }
+}

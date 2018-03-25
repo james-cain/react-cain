@@ -280,13 +280,13 @@ module.exports = {
       },
     }),
     // copy custom static assets
-    new CopyWebpackPlugin([
-      {
-        from: resolve('../static'),
-        to: 'static',
-        ignore: ['.*']
-      }
-    ]),
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: resolve('../static'),
+    //     to: 'static',
+    //     ignore: ['.*']
+    //   }
+    // ]),
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.

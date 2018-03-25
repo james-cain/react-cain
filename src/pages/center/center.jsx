@@ -96,6 +96,9 @@ class Center extends React.Component {
             case '专属客服':
                 this.props.history.push('/exclusiveService');
                 break;
+            case '个人信息':
+                this.props.history.push('/personInfo');
+                break;
             default:
                 this.props.history.push('/');
                 break;

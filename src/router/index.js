@@ -8,6 +8,7 @@ const applyCreditCard = asyncComponent(() => import("@/pages/apply_credit_card/a
 const applyCreditCardDesc = asyncComponent(() => import("@/pages/apply_credit_card/apply-credit-card-desc"));
 const applyCreditCardSubmit = asyncComponent(() => import("@/pages/apply_credit_card/apply-credit-card-submit"));
 const exclusiveService = asyncComponent(() => import("@/pages/center/exclusive-service"));
+const personInfo = asyncComponent(() => import("@/pages/center/personInfo"));
 
 export default class RouteConfig extends React.Component {
   render() {
@@ -20,6 +21,7 @@ export default class RouteConfig extends React.Component {
           <Route path="/applyCreditCardDesc/:id" component={applyCreditCardDesc} />
           <Route path="/applyCreditCardSubmit/:id" component={applyCreditCardSubmit} />
           <Route path="/exclusiveService" component={exclusiveService} />
+          <Route path="/personInfo" component={personInfo} />
           <Redirect to="/" />
         </Switch>
       </HashRouter>
