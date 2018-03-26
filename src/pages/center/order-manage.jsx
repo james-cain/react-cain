@@ -17,7 +17,7 @@ class OrderManage extends React.Component {
             { title: <Badge dot>回收站</Badge> },
         ];
         return (
-            <div>
+            <div className="order-manage">
                 <Tabs tabs={tabs}
                     initialPage={0}
                     onChange={(tab, index) => { console.log('onChange', index, tab); }}
