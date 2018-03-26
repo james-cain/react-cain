@@ -99,6 +99,9 @@ class Center extends React.Component {
             case '个人信息':
                 this.props.history.push('/personInfo');
                 break;
+            case '修改结算卡':
+                this.props.history.push('/settlementCard')
+                break;
             default:
                 this.props.history.push('/');
                 break;

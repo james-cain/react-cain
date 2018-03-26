@@ -60,3 +60,22 @@
         border: 0px;
     }
 }
+
+.am-list-item .am-input-label, .am-list-item .am-list-line .am-list-content {
+    font-size: 30px !important;
+    font-weight: bold !important;
+}
+
+.am-list-item .am-input-control input, .am-list-item .am-list-line .am-list-extra {
+    font-size: 30px !important;
+}
+
+.am-list-item.am-input-item {
+    position: relative;
+}
+
+.vertify_btn {
+    position: absolute;
+    right: 20px;
+    color: #2aa2fb;
+}

@@ -2,10 +2,10 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { WhiteSpace, InputItem } from 'antd-mobile';
-import { WhiteSpace, List, InputItem, Switch, Stepper, Range, Button, Picker } from 'antd-mobile';
-import { district } from '../../utils/districtData';
+import { WhiteSpace, List, InputItem, Button, Picker } from 'antd-mobile';
+// import { district } from '../../utils/districtData';
 import { createForm } from 'rc-form';
-import Immutable from 'immutable';
+// import Immutable from 'immutable';
 import './personInfo.css';
 
 const Item = List.Item;
@@ -18,8 +18,21 @@ function Title(props) {
 }
 
 class PersonInfo extends React.Component {
-    static = {
-        userInfo: {}
+    constructor(props) {
+        super(props);
+        this.state = {
+            sex: [{
+                value: '1',
+    　　　　     label: '男',
+            }, {
+                value: '0',
+                label: '女'
+            }]
+        };
+    }
+
+    state = {
+        userInfo: {},
     }
 
     componentWillMount() {
@@ -54,60 +67,56 @@ class PersonInfo extends React.Component {
                     <div className="person-info__top-name">{this.props.user.userInfo.UserName}</div>
                 </div>
                 <Title titleName="提交个人申请资料" />
-                <div className="person-info__resource">
-                    <div className="person-info__resource-nav">
-                        <span>昵&nbsp;称</span>
-                        <input className="input-info" placeholder="姓名" value={this.props.user.userInfo.UserName} />
-                    </div>
-                    <div className="person-info__resource-nav">
-                        <span>姓&nbsp;名</span>
-                        <input className="input-info" placeholder="请输入您的姓名" value={this.props.user.userInfo.UserName} />
-                    </div>
-                    <div className="person-info__resource-nav">
-                        <span>性&nbsp;别</span>
-                        <input className="input-info" placeholder="请输入您的姓名" value={this.props.user.userInfo.UserName} />
-                    </div>
-                    <div className="person-info__resource-nav">
-                        <span>手机号</span>
-                        <input className="input-info" placeholder="请输入常用的手机号码" value={this.props.user.userInfo.UserName} />
-                    </div>
-                    <div className="person-info__resource-nav">
-                        <span>验证码</span>
-                        <input className="input-info" placeholder="请输入验证码" value={this.props.user.userInfo.UserName} />
-                    </div>
-                </div>
-                <WhiteSpace size="sm" />
-                <div className="person-info__resource">
-                    <div className="person-info__resource-nav">
-                        <span>微信号</span>
-                        <input className="input-info" placeholder="请输入微信号" value={this.props.user.userInfo.UserName} />
-                    </div>
-                    <div className="person-info__resource-nav">
-                        <span>常驻地址</span>
-                        <input className="input-info" placeholder="请选择常驻地址" value={this.props.user.userInfo.UserName} />
-                    </div>
-                    <div className="person-info__resource-nav">
-                        <span>备&nbsp;注</span>
-                        <input className="input-info" placeholder="不大于50字" value={this.props.user.userInfo.UserName} />
-                    </div>
-                    
-                </div>
                 <form>
                     <List>
                         <InputItem
-                            {...getFieldProps('UserName')}
+                            {...getFieldProps('NickName')}
                             placeholder="请输入昵称"
-                            defaultValue={this.props.user.userInfo.UserName}
+                            defaultValue={this.props.user.userInfo.NickName}
                         >昵&nbsp;称</InputItem>
                         <InputItem
                             {...getFieldProps('UserName')}
                             placeholder="请输入昵称"
                             defaultValue={this.props.user.userInfo.UserName}
                         >姓&nbsp;名</InputItem>
+                        <Picker
+                            data={this.state.sex}
+                            extra="请选择"
+                            {...getFieldProps('UserSex', {
+                                initialValue: ['1'],
+                            })}
+                        >
+                            <List.Item arrow="horizontal">性&nbsp;别</List.Item>
+                        </Picker>
+                        <InputItem
+                            {...getFieldProps('UserPhone')}
+                            type="phone"
+                            placeholder="请输入手机号"
+                            defaultValue={this.props.user.userInfo.UserPhone}
+                        >手机号</InputItem>
+                        <InputItem
+                            {...getFieldProps('VertifyCode')}
+                            placeholder="请输入验证码"
+                        >验证码<div className="vertify_btn" style={{fontSize: '15px', top: '13px'}}>获取验证码</div></InputItem>
+                        <InputItem
+                            {...getFieldProps('UserWeChatId')}
+                            placeholder="请输入微信号"
+                            defaultValue={this.props.user.userInfo.UserWeChatId}
+                        >微信号</InputItem>
+                        <InputItem
+                            {...getFieldProps('UserArea')}
+                            placeholder="请输入常住地址"
+                            defaultValue={this.props.user.userInfo.UserArea}
+                        >常住地址</InputItem>
+                        <InputItem
+                            {...getFieldProps('UserRemarks')}
+                            placeholder="请输入备注"
+                            defaultValue={this.props.user.userInfo.UserRemarks}
+                        >备注</InputItem>
                         <Item>
                             <Button type="primary" size="small" inline onClick={this.onSubmit}>Submit</Button>
                         </Item>
-                        <Picker extra="请选择(可选)"
+                        {/* <Picker extra="请选择(可选)"
                             data={district}
                             title="Areas"
                             {...getFieldProps('district', {
@@ -117,7 +126,7 @@ class PersonInfo extends React.Component {
                             onDismiss={e => console.log('dismiss', e)}
                         >
                             <List.Item arrow="horizontal">Multiple & cascader</List.Item>
-                        </Picker>
+                        </Picker> */}
                     </List>
                 </form>
             </div>

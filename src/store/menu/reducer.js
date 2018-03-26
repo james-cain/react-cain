@@ -13,23 +13,23 @@ let defaultState = {
         url: '/'
     }, {
         menuId: 'sjsk',
-        menuName: '贷款申请',
+        menuName: '增值服务',
         icon: 'violation_payment.png',
         url: '/'
     }, {
         menuId: 'wzdj',
-        menuName: '信用卡还款',
-        icon: 'card_payment.png',
+        menuName: '网乐购物',
+        icon: 'shopping.png',
         url: '/'
     }, {
         menuId: 'bkcx',
-        menuName: '商家收款',
+        menuName: '银行便民',
         icon: 'get_money.png',
         url: '/'
     }, {
         menuId: 'xykhk',
-        menuName: '违章代缴',
-        icon: 'car_payment.png',
+        menuName: '用卡指南',
+        icon: 'card_guide.png',
         url: '/'
     }, {
         menuId: 'hyzx',

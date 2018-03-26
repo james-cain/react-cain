@@ -5,8 +5,7 @@
     [
       "import",
       {
-        libraryName: "antd-mobile",
-        // style: true
+        "libraryName": "antd-mobile",
       }
     ]
   ]
