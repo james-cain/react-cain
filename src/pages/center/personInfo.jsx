@@ -2,10 +2,12 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import { WhiteSpace, InputItem } from 'antd-mobile';
-import { WhiteSpace, List, InputItem, Button, Picker } from 'antd-mobile';
+import { WhiteSpace, List, InputItem, Button, Picker, Toast } from 'antd-mobile';
 // import { district } from '../../utils/districtData';
+import { setUserInfo } from '@/store/info/action';
+import API from '@/api/api';
 import { createForm } from 'rc-form';
-// import Immutable from 'immutable';
+import Immutable from 'immutable';
 import './personInfo.css';
 
 const Item = List.Item;
@@ -40,13 +42,36 @@ class PersonInfo extends React.Component {
         console.log(this.props.user);
     }
 
-    onSubmit = () => {
+    onSubmit = async () => {
         this.props.form.validateFields({ force: true }, (error) => {
-        if (!error) {
-            console.log(this.props.form.getFieldsValue());
-        } else {
-            alert('Validation failed');
-        }
+            if (!error) {
+                console.log(this.props.form.getFieldsValue());
+                let formData = this.props.form.getFieldsValue();
+                if (formData.UserSex) {
+                    formData.UserSex = formData.UserSex[0];
+                }
+                console.log(formData);
+                API.updateCurrentUser({
+                    params: {
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        data: formData,
+                    }
+                }).then((result) => {
+                    Toast.success('信息修改成功!', 2);
+                    API.getCurrentUser().then((result) => {
+                        const user = {};
+                        user.userInfo = result;
+                        this.props.setUserInfo(user);
+                    });
+                }).catch((err) => {
+                    console.log(err);
+                    Toast.fail('请求失败，请联系管理员!', 2);
+                });
+            } else {
+                alert('Validation failed');
+            }
         });
     }
 
@@ -70,51 +95,59 @@ class PersonInfo extends React.Component {
                 <form>
                     <List>
                         <InputItem
-                            {...getFieldProps('NickName')}
+                            {...getFieldProps('NickName', {
+                                initialValue: this.props.user.userInfo.NickName
+                            })}
                             placeholder="请输入昵称"
-                            defaultValue={this.props.user.userInfo.NickName}
                         >昵&nbsp;称</InputItem>
                         <InputItem
-                            {...getFieldProps('UserName')}
+                            {...getFieldProps('UserName', {
+                                initialValue: this.props.user.userInfo.UserName
+                            })}
                             placeholder="请输入昵称"
-                            defaultValue={this.props.user.userInfo.UserName}
                         >姓&nbsp;名</InputItem>
                         <Picker
                             data={this.state.sex}
                             extra="请选择"
                             {...getFieldProps('UserSex', {
-                                initialValue: ['1'],
+                                initialValue: [
+                                    '' + this.props.user.userInfo.UserSex
+                                ],
                             })}
                         >
                             <List.Item arrow="horizontal">性&nbsp;别</List.Item>
                         </Picker>
                         <InputItem
-                            {...getFieldProps('UserPhone')}
+                            {...getFieldProps('UserPhone', {
+                                initialValue: this.props.user.userInfo.UserPhone
+                            })}
                             type="phone"
                             placeholder="请输入手机号"
-                            defaultValue={this.props.user.userInfo.UserPhone}
                         >手机号</InputItem>
-                        <InputItem
+                        {/* <InputItem
                             {...getFieldProps('VertifyCode')}
                             placeholder="请输入验证码"
-                        >验证码<div className="vertify_btn" style={{fontSize: '15px', top: '13px'}}>获取验证码</div></InputItem>
+                        >验证码<div className="vertify_btn" style={{fontSize: '15px', top: '13px'}}>获取验证码</div></InputItem> */}
                         <InputItem
-                            {...getFieldProps('UserWeChatId')}
+                            {...getFieldProps('UserWeChatId', {
+                                initialValue: this.props.user.userInfo.UserWeChatId
+                            })}
                             placeholder="请输入微信号"
-                            defaultValue={this.props.user.userInfo.UserWeChatId}
                         >微信号</InputItem>
                         <InputItem
-                            {...getFieldProps('UserArea')}
+                            {...getFieldProps('UserArea', {
+                                initialValue: this.props.user.userInfo.UserArea
+                            })}
                             placeholder="请输入常住地址"
-                            defaultValue={this.props.user.userInfo.UserArea}
                         >常住地址</InputItem>
                         <InputItem
-                            {...getFieldProps('UserRemarks')}
+                            {...getFieldProps('UserRemarks', {
+                                initialValue: this.props.user.userInfo.UserRemarks
+                            })}
                             placeholder="请输入备注"
-                            defaultValue={this.props.user.userInfo.UserRemarks}
                         >备注</InputItem>
                         <Item>
-                            <Button type="primary" size="small" inline onClick={this.onSubmit}>Submit</Button>
+                            <Button type="warning" onClick={this.onSubmit}>提交资料</Button>
                         </Item>
                         {/* <Picker extra="请选择(可选)"
                             data={district}
@@ -138,4 +171,6 @@ const PersonInfoWrapper = createForm()(PersonInfo);
 
 export default withRouter(connect(state => ({
     user: state.user,
-}))(PersonInfoWrapper));
+}), {
+    setUserInfo,
+})(PersonInfoWrapper));

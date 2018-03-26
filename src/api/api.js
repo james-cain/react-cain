@@ -2,6 +2,53 @@ import Server from './server';
 
 class API extends Server {
     /**
+     * 获取短信验证码
+     * @method post
+     * @param 
+     */
+    async getSms(params) {
+        try {
+            let result = await this.axios('post', '/sendsms', params);
+            if (result) {
+                console.log(result);
+                return result.data;
+            } else {
+                let err = {
+                    tip: '获取短信验证码失败',
+                    response: result,
+                    data: params,
+                    url: '/sendsms'
+                }
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * 更新用户信息
+     * @method put
+     * @param {*} params 
+     */
+    async updateCurrentUser(params = {}) {
+        try {
+            let result = await this.axios('put', '/api/user/json/current', params);
+            if (result) {
+                return result.data;
+            } else {
+                let err = {
+                    tip: '更新失败',
+                    response: result,
+                    data: params,
+                    url: '/api/user/json/current'
+                }
+                throw err;
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
+    /**
      * 返回微信授权后信息
      * @method get
      * @param {*} params 

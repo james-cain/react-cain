@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { WhiteSpace, Toast, Modal } from 'antd-mobile';
+import { WhiteSpace, Toast, Modal, Badge } from 'antd-mobile';
 import API from '@/api/api';
 import './apply-credit-card-submit.css';
 
@@ -133,13 +133,30 @@ class ApplyCreditCardSubmit extends React.Component {
         });
     }
 
+    getSms = () => {
+        if (this.state.tel) {
+            API.getSms({
+                params: {
+                    mobile: this.state.tel
+                }
+            }).then((result) => {
+                console.log(result);
+            }).catch((err) => {
+                console.log(err);
+                Toast.fail('请求失败，请联系管理员!', 2);
+            });
+        } else {
+            Toast.info('请先输入手机号！', 2);
+        }
+    }
+
     render() {
         return (
             <div className="submit-credit-card">
                 <img className="submit-credit-card-img" src={'/static/images/creditcard/submit-header.png'} alt="" />
                 <Title titleName="申请人基本信息" />
                 <div className="submit-credit-card-info">
-                    <img class="submit-credit-card-info__img" src={'/static/images/creditcard/info-msg.png'} alt="" />
+                    <img className="submit-credit-card-info__img" src={'/static/images/creditcard/info-msg.png'} alt="" />
                     <span className="submit-credit-card-info__desc">注：在平台输入的申请必须与银行申请填写的信息一致，否则视为无效，将无法结算佣金！</span>
                     <div className="submit-credit-card-info__nav">
                         <div className="submit-credit-card-info__nav-bg">
@@ -157,8 +174,19 @@ class ApplyCreditCardSubmit extends React.Component {
                         <div className="submit-credit-card-info__nav-bg">
                             <i className="input-icon iconfont icon-duanxin"></i>
                             <input className="input-info" placeholder="短信号码" value={this.state.sms} onChange={this.smsHandleChange}/>
+                            <Badge text="获取验证码"
+                                style={{
+                                marginLeft: 12,
+                                padding: '0 3px',
+                                backgroundColor: '#ec4345',
+                                borderRadius: 2,
+                                color: '#fff',
+                                border: '1px solid #ec4345',
+                                }}
+                                onClick={this.getSms}
+                            />
                         </div>
-                        <button className="apply-btn" onClick={(e) => this.submitCreditCardInfo(e)}>提交申请</button>
+                        <button className="apply-btn" onClick={this.submitCreditCardInfo}>提交申请</button>
                     </div>
                 </div>
                 <WhiteSpace size="xs" />

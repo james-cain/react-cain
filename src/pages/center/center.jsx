@@ -102,6 +102,9 @@ class Center extends React.Component {
             case '修改结算卡':
                 this.props.history.push('/settlementCard')
                 break;
+            case '订单管理':
+                this.props.history.push('/orderManage');
+                break;
             default:
                 this.props.history.push('/');
                 break;
