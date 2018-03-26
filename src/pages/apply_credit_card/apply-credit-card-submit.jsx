@@ -137,7 +137,9 @@ class ApplyCreditCardSubmit extends React.Component {
         if (this.state.tel) {
             API.getSms({
                 params: {
-                    mobile: this.state.tel
+                    data: {
+                        mobile: this.state.tel
+                    }
                 }
             }).then((result) => {
                 console.log(result);

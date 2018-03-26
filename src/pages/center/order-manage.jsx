@@ -2,30 +2,35 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Tabs, Badge } from 'antd-mobile';
+import './order-manage.css';
 
-const tabs = [
-    { title: <Badge text={'3'}>First Tab</Badge> },
-    { title: <Badge text={'20'}>Second Tab</Badge> },
-    { title: <Badge dot>Third Tab</Badge> },
-];
+class OrderManage extends React.Component {
 
-class OrderManage extends React.Componnet {
+    componentWillMount() {
+        document.title = '订单管理';
+    }
+
     render() {
+        const tabs = [
+            { title: <Badge dot>待付款</Badge> },
+            { title: <Badge dot>已完成</Badge> },
+            { title: <Badge dot>回收站</Badge> },
+        ];
         return (
             <div>
                 <Tabs tabs={tabs}
-                    initialPage={1}
+                    initialPage={0}
                     onChange={(tab, index) => { console.log('onChange', index, tab); }}
                     onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
                 >
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-                        Content of first tab
+                        <img src={"/static/images/no_data.png"} alt="" />
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-                        Content of second tab
+                        <img src={"/static/images/no_data.png"} alt="" />
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-                        Content of third tab
+                        <img src={"/static/images/no_data.png"} alt="" />
                     </div>
                 </Tabs>
             </div>
