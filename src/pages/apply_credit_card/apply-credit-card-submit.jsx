@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { WhiteSpace, Toast, Modal, Badge } from 'antd-mobile';
 import API from '@/api/api';
 import './apply-credit-card-submit.css';
+import MD5 from '../../utils/md5'
 
 function Title(props) {
     return (<div className="title-nav">
@@ -18,7 +19,8 @@ class ApplyCreditCardSubmit extends React.Component {
         name: '',
         idCard: '',
         tel: '',
-        sms: ''
+        sms: '',
+        smsValidate: '',
     }
 
     componentWillMount() {
@@ -63,8 +65,8 @@ class ApplyCreditCardSubmit extends React.Component {
             Toast.info('手机号输入不合法', 2);
             return;
         }
-        if (!this.state.sms) {
-            Toast.info('短信号码不能为空！', 2);
+        if (!this.isSms(this.state.sms)) {
+            Toast.info('短信验证码错误！', 2);
             return;
         }
         alert('温馨提示', '确认填写的信息真实性，否则影响佣金哦~', [
@@ -109,6 +111,14 @@ class ApplyCreditCardSubmit extends React.Component {
         return reg.test(tel);
     }
 
+    isSms = (sms) => {
+        const a = this.props.userInfo.userInfo.UserId + sms;
+        const b = MD5()(a);
+        console.log(b);
+        console.log(this.state.smsValidate);
+        return b === this.state.smsValidate;
+    }
+
     nameHandleChange = (event) => {
         this.setState({
             name: event.target.value
@@ -137,12 +147,17 @@ class ApplyCreditCardSubmit extends React.Component {
         if (this.state.tel) {
             API.getSms({
                 params: {
-                    data: {
-                        mobile: this.state.tel
-                    }
+                    headers: {
+                        'content-type': 'application/x-www-form-urlencoded'
+                    },
+                    params: {
+                        'mobile': this.state.tel
+                    },
                 }
             }).then((result) => {
-                console.log(result);
+                this.setState({
+                    smsValidate: result
+                })
             }).catch((err) => {
                 console.log(err);
                 Toast.fail('请求失败，请联系管理员!', 2);

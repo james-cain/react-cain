@@ -1,22 +1,20 @@
 @import (less, reference) "../../style/mixin.css";
 
-.order-manage img {
-    height: 280px;
-    width: 400px;
-}
-
-.order-manage-nav {
+.tab_title_wrap {
     background-color: #ed4243;
     height: 184px;
     width: 100%;
     font-size: 30px;
     .flex;
-    .order-manage-nav__item {
+    .tab_title {
         flex: 1;
         .flex;
         flex-direction: column;
         padding: 40px 0;
         color: #ffb4ae;
+        &.active {
+            color: #ebfeff;
+        }
         i {
             font-size: 50px;
             flex: 1;
@@ -27,11 +25,17 @@
         }
     }
 }
-
-.am-tabs-default-bar-tab-active {
-    color: #ed4243;
-}
-
-.am-tabs-default-bar-underline {
-    border: 2px #ed4243 solid;
+.tab_item_wrap{
+    width: 100%;
+    height: 300px;
+    .tab_item{
+        width: 100%;
+        height: 300px;
+        text-align: center;
+        line-height: 300px;
+        display: none;
+        &.show{
+            display: block;
+        }
+    }
 }

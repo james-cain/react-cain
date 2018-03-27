@@ -1,4 +1,5 @@
-import Server from './server';
+﻿import Server from './server';
+import axios from 'axios';
 
 class API extends Server {
     /**
@@ -6,11 +7,10 @@ class API extends Server {
      * @method post
      * @param 
      */
-    async getSms(params) {
+    async getSms(params = {}) {
         try {
             let result = await this.axios('post', '/sendsms', params);
-            if (result) {
-                console.log(result);
+            if (result && result.code === 0) {
                 return result.data;
             } else {
                 let err = {
@@ -159,6 +159,28 @@ class API extends Server {
                     url: '/api/user/json/parent'
                 }
                 throw err;
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    /**
+     * 获取订单详情
+     */
+    async getCreditcardorders() {
+        try {
+            let result = await this.axios('get', '/api/creditcardorders/json/');
+            if (result) {
+                console.log(result);
+                return result.data;
+            } else {
+                let err = {
+                    tip: '订单详情信息',
+                    response: result,
+                    data: {},
+                    url: '/api/creditcardorders/json/'
+                }
             }
         } catch (err) {
             throw err;

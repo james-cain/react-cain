@@ -29,7 +29,7 @@ export const getGrandUserInfo = () => {
     // 返回异步数据
     return async dispatch => {
         try {
-            let result = API.getGrandUserInfo();
+            let result = await API.getGrandUserInfo();
             dispatch({
                 type: info.SETGRANDUSERINFO,
                 data: result
