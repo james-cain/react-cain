@@ -11,6 +11,7 @@ const exclusiveService = asyncComponent(() => import("@/pages/center/exclusive-s
 const personInfo = asyncComponent(() => import("@/pages/center/personInfo"));
 const SettlementCard = asyncComponent(() => import("@/pages/center/settlement-card"));
 const orderManage = asyncComponent(() => import("@/pages/center/order-manage"));
+const Notice = asyncComponent(() => import("@/pages/notice/notice"));
 
 export default class RouteConfig extends React.Component {
   render() {
@@ -26,6 +27,7 @@ export default class RouteConfig extends React.Component {
           <Route path="/personInfo" component={personInfo} />
           <Route path="/SettlementCard" component={SettlementCard} />
           <Route path="/orderManage" component={orderManage} />
+          <Route path="/notice" component={Notice} />
           <Redirect to="/" />
         </Switch>
       </HashRouter>

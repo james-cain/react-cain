@@ -2,6 +2,25 @@
 import axios from 'axios';
 
 class API extends Server {
+
+    async getNotice(params = {}) {
+        try {
+            let result = await this.axios('get', '/api/notice/json/', params);
+            if (result && result.code === 0) {
+                return result.data;
+            } else {
+                let err = {
+                    tip: '获取系统公告失败',
+                    response: result,
+                    data: params,
+                    url: '/api/notice/json/'
+                }
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
+
     /**
      * 获取短信验证码
      * @method post

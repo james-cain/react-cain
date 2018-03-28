@@ -21,6 +21,9 @@ class ApplyCreditCardSubmit extends React.Component {
         tel: '',
         sms: '',
         smsValidate: '',
+        number: 60,
+        type: 'stop', // stop倒计时还未开始 start倒计时开始 restart 重新开始
+        smsBtnName: '获取验证码' // '获取验证码' 'xx秒' '重新获取验证码'
     }
 
     componentWillMount() {
@@ -145,23 +148,41 @@ class ApplyCreditCardSubmit extends React.Component {
 
     getSms = () => {
         if (this.state.tel) {
-            API.getSms({
-                params: {
-                    headers: {
-                        'content-type': 'application/x-www-form-urlencoded'
-                    },
+            if (this.state.type !== 'start') {
+                Toast.info('验证码将以短信形式发送到您的手机', 2);
+                let time = setInterval(() => {
+                    this.setState({
+                        type: 'start',
+                        number: this.state.number - 1,
+                        smsBtnName: `${this.state.number - 1}秒`
+                    });
+                    if (this.state.number === 0) {
+                        this.setState({
+                            type: 'restart',
+                            number: 60,
+                            smsBtnName: '重新获取验证码'
+                        });
+                        clearInterval(time);
+                    }
+                }, 1000);
+                API.getSms({
                     params: {
-                        'mobile': this.state.tel
-                    },
-                }
-            }).then((result) => {
-                this.setState({
-                    smsValidate: result
-                })
-            }).catch((err) => {
-                console.log(err);
-                Toast.fail('请求失败，请联系管理员!', 2);
-            });
+                        headers: {
+                            'content-type': 'application/x-www-form-urlencoded'
+                        },
+                        params: {
+                            'mobile': this.state.tel
+                        },
+                    }
+                }).then((result) => {
+                    this.setState({
+                        smsValidate: result
+                    })
+                }).catch((err) => {
+                    console.log(err);
+                    Toast.fail('请求失败，请联系管理员!', 2);
+                });
+            }
         } else {
             Toast.info('请先输入手机号！', 2);
         }
@@ -191,7 +212,7 @@ class ApplyCreditCardSubmit extends React.Component {
                         <div className="submit-credit-card-info__nav-bg">
                             <i className="input-icon iconfont icon-duanxin"></i>
                             <input className="input-info" placeholder="短信号码" value={this.state.sms} onChange={this.smsHandleChange}/>
-                            <Badge text="获取验证码"
+                            <Badge text={this.state.smsBtnName}
                                 style={{
                                 marginLeft: 12,
                                 padding: '0 3px',

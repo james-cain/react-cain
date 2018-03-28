@@ -17,6 +17,13 @@ class TabsControl extends React.Component {
         return index === this.state.currentIndex ? 'tab_item show' : 'tab_item';
     }
 
+    changeCurrentIndex = (index) => {
+        this.setState({
+            currentIndex: index
+        });
+        this.props.onTabControlChange(index);
+    }
+
     render() {
         return (
             <div>
@@ -24,7 +31,8 @@ class TabsControl extends React.Component {
                     {
                         React.Children.map(this.props.children, (element, index) => {
                             return (
-                                <div onClick={() => {this.setState({currentIndex: index})}}
+                                // <div onClick={() => {this.setState({currentIndex: index})}}
+                                <div onClick={() => this.changeCurrentIndex(index)}
                                     className={this.checkTitleIndex(index)}>
                                     <i className={element.props.classes}></i>
                                     <span>{element.props.name}</span>

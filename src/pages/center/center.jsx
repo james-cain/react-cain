@@ -100,10 +100,13 @@ class Center extends React.Component {
                 this.props.history.push('/personInfo');
                 break;
             case '修改结算卡':
-                this.props.history.push('/settlementCard')
+                this.props.history.push('/settlementCard');
                 break;
             case '订单管理':
                 this.props.history.push('/orderManage');
+                break;
+            case '系统公告':
+                this.props.history.push('/notice');
                 break;
             default:
                 this.props.history.push('/');

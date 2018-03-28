@@ -35,3 +35,60 @@
 .am-tabs-default-bar-underline {
     border: 2px #ed4243 solid;
 }
+
+.order-item {
+    height: 296px;
+    width: 100%;
+    background-color: #fff;
+    color: #666;
+    font-size: 26px;
+    margin-top: 20px;
+    &__top {
+        height: 88px;
+        line-height: 88px;
+        border-bottom: 2px solid #eee;
+        padding: 0 34px 0 30px;
+        .flex(flex-start, center);
+        &-company {
+            flex: 1;
+            text-align: left;
+        }
+        .iconfont {
+            font-size: 34px;
+            width: 60px;
+        }
+        .icon-dianhua1 {
+            color: #0094fc;
+        }
+        .icon-shanchu {
+            color: #999;
+        }
+    }
+    &__bottom {
+        height: 208px;
+        padding: 36px 30px 34px;
+        &-name {
+            .flex;
+            height: 30px;
+        }
+        &-tel {
+            .flex;
+            height: 30px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        &-updatetime {
+            .flex;
+            height: 30px;
+        }
+        &-data {
+            color: #333;
+            flex: 1;
+            text-align: left;
+        }
+        &-title {
+            width: 174px;
+            text-align: left;
+        }
+    }
+}
