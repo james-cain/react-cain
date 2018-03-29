@@ -142,7 +142,7 @@ let MD5 = function(){
     };
     
     return function(string) {
-        let x = Array();
+        let x = [];
         let k, AA, BB, CC, DD, a, b, c, d;
         let S11=7, S12=12, S13=17, S14=22;
         let S21=5, S22=9 , S23=14, S24=20;

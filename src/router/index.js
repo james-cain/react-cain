@@ -1,17 +1,18 @@
 import React from 'react';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
-import asyncComponent from '@/utils/asyncComponent';
+// import asyncComponent from '@/utils/asyncComponent';
+import LoadableComponent from '@/utils/loadableComponent';
 
 import home91 from '@/pages/home/home91';
-const center = asyncComponent(() => import("@/pages/center/center"));
-const applyCreditCard = asyncComponent(() => import("@/pages/apply_credit_card/apply-credit-card"));
-const applyCreditCardDesc = asyncComponent(() => import("@/pages/apply_credit_card/apply-credit-card-desc"));
-const applyCreditCardSubmit = asyncComponent(() => import("@/pages/apply_credit_card/apply-credit-card-submit"));
-const exclusiveService = asyncComponent(() => import("@/pages/center/exclusive-service"));
-const personInfo = asyncComponent(() => import("@/pages/center/personInfo"));
-const SettlementCard = asyncComponent(() => import("@/pages/center/settlement-card"));
-const orderManage = asyncComponent(() => import("@/pages/center/order-manage"));
-const Notice = asyncComponent(() => import("@/pages/notice/notice"));
+const center = LoadableComponent(() => import("@/pages/center/center"));
+const applyCreditCard = LoadableComponent(() => import("@/pages/apply_credit_card/apply-credit-card"));
+const applyCreditCardDesc = LoadableComponent(() => import("@/pages/apply_credit_card/apply-credit-card-desc"));
+const applyCreditCardSubmit = LoadableComponent(() => import("@/pages/apply_credit_card/apply-credit-card-submit"));
+const exclusiveService = LoadableComponent(() => import("@/pages/center/exclusive-service"));
+const personInfo = LoadableComponent(() => import("@/pages/center/personInfo"));
+const SettlementCard = LoadableComponent(() => import("@/pages/center/settlement-card"));
+const orderManage = LoadableComponent(() => import("@/pages/center/order-manage"));
+const Notice = LoadableComponent(() => import("@/pages/notice/notice"));
 
 export default class RouteConfig extends React.Component {
   render() {

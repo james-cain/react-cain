@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Tabs, WhiteSpace } from 'antd-mobile';
+import { Tabs } from 'antd-mobile';
 import { getCreditcardorders } from '@/store/orders/action';
 import TabsControl from '@/components/Tabs/tabControl.jsx';
 import './order-manage.css';

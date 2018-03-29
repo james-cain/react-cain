@@ -1,13 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { WhiteSpace, InputItem } from 'antd-mobile';
-import { WhiteSpace, List, InputItem, Button, Picker, Toast } from 'antd-mobile';
+import { List, InputItem, Button, Picker, Toast } from 'antd-mobile';
 // import { district } from '../../utils/districtData';
 import { setUserInfo } from '@/store/info/action';
 import API from '@/api/api';
 import { createForm } from 'rc-form';
-import Immutable from 'immutable';
+// import Immutable from 'immutable';
 import './personInfo.css';
 
 const Item = List.Item;
@@ -84,7 +83,7 @@ class PersonInfo extends React.Component {
     }
 
     render() {
-        const { getFieldProps, getFieldError } = this.props.form;
+        const { getFieldProps } = this.props.form;
         return (
             <div className="person-info">
                 <div className="person-info__top">
@@ -124,10 +123,6 @@ class PersonInfo extends React.Component {
                             type="phone"
                             placeholder="请输入手机号"
                         >手机号</InputItem>
-                        {/* <InputItem
-                            {...getFieldProps('VertifyCode')}
-                            placeholder="请输入验证码"
-                        >验证码<div className="vertify_btn" style={{fontSize: '15px', top: '13px'}}>获取验证码</div></InputItem> */}
                         <InputItem
                             {...getFieldProps('UserWeChatId', {
                                 initialValue: this.props.user.userInfo.UserWeChatId

@@ -28,17 +28,20 @@ let defaultState = {
         url: '/'
     }, {
         menuId: 'xykhk',
-        menuName: '用卡指南',
+        menuName: '银行服务',
+        // menuName: '用卡指南',
         icon: 'card_guide.png',
         url: '/'
     }, {
         menuId: 'hyzx',
-        menuName: '会员中心',
+        // menuName: '会员中心',
+        menuName: '银行热线',
         icon: 'member_center.png',
         url: '/center'
     }, {
         menuId: 'hysj',
-        menuName: '会员升级',
+        // menuName: '会员升级',
+        menuName: '使用帮助',
         icon: 'paperLevel.png',
         url: '/'
     } ]

@@ -1,0 +1,18 @@
+@import (less, reference) "../../style/mixin.css";
+
+.title-nav {
+    height: 100px;
+    line-height: 100px;
+    width: 100%;
+    padding: 0 24px;
+    font-size: 28px;
+    color: #666;
+    background-color: #eee;
+    span {
+        padding: 14px 5px;
+        background-color: #f4452d;
+        margin-right: 18px;
+        display: inline-block;
+        vertical-align: text-top;
+    }
+}

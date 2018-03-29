@@ -1,5 +1,4 @@
 ﻿import Server from './server';
-import axios from 'axios';
 
 class API extends Server {
 
@@ -15,6 +14,7 @@ class API extends Server {
                     data: params,
                     url: '/api/notice/json/'
                 }
+                throw err;
             }
         } catch (err) {
             throw err;
@@ -38,6 +38,7 @@ class API extends Server {
                     data: params,
                     url: '/sendsms'
                 }
+                throw err;
             }
         } catch (err) {
             throw err;
@@ -200,6 +201,7 @@ class API extends Server {
                     data: {},
                     url: '/api/creditcardorders/json/'
                 }
+                throw err;
             }
         } catch (err) {
             throw err;
