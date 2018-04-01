@@ -95,7 +95,7 @@ class Upgrade extends React.Component {
                     </div>
                     <div className="upgrade-btn-nav">
                         <div className="upgrade-btn__desc">会员标识是您尊贵、奢华的身份与地位的象征</div>
-                        <button className="upgrade-btn">立即升级</button>
+                        <button className="upgrade-btn" onClick={() => this.props.history.push('/upgradeConfirm')}>立即升级</button>
                     </div>
                 </div>
             </div>

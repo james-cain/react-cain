@@ -85,7 +85,8 @@
     }
 }
 
-.am-badge {
+
+.submit-credit-card .am-badge {
     position: absolute !important;
     bottom: 24px;
     right: 0;

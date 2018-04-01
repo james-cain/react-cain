@@ -20,3 +20,18 @@
             animation-fill-mode: both;
     display: inline-block;
 }
+
+@keyframes scale {
+    30% {
+      -webkit-transform: scale(0.3);
+              transform: scale(0.3); }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1); } }
+
+.loader-inner {
+    height: 600px;
+    width: 100%;
+    line-height: 600px;
+    text-align: center;
+}

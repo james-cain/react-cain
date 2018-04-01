@@ -30,7 +30,9 @@ class ApplyCraditCardDesc extends React.Component {
             <div>
                 <img className="credit-card-img" src={this.state.bankDesc.bankDetailImageUrl} alt="" />
                 <div className="credit-card-btn-nav">
-                    <button className="credit-card-btn__guide">申请指南</button>
+                    <button className="credit-card-btn__guide"
+                        onClick={() => this.props.history.push('/applyCreditCardGuide')}
+                        >申请指南</button>
                     <button className="credit-card-btn__apply"
                         onClick={() => this.props.history.push(`/applyCreditCardSubmit/${this.state.id}`)}
                         >我要申请</button>

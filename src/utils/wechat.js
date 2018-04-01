@@ -16,13 +16,21 @@ class WeApi {
                 'onMenuShareTimeline',
                 'onMenuShareAppMessage',
                 'onMenuShareQQ',
-                'onMenuShareQZone'
+                'onMenuShareQZone',
+                'chooseWXPay'
             ]
         });
 
         if (wechatConfig) {
             return wechatConfig;
         }
+    }
+
+    async getUpgrade(params = {}) {
+        let prePayInfo = await API.getUpgrade({
+            params
+        });
+        return prePayInfo;
     }
 }
 

@@ -22,9 +22,9 @@
             color: #fff;
             margin-left: 10px; 
         }
-        .upgrade {
+        .upgrade-flag {
             /* position: absolute; */
-            width: 194px;
+            width: 204px;
             height: 60px;
             line-height: 60px;
             font-size: 28px;
@@ -35,14 +35,14 @@
             .flex;
             .iconKing {
                 width: 50px;
-                font-size: 19px;
+                font-size: 40px;
                 text-align: center;
             }
             span {
                 flex: 1;
             }
             .iconArrow {
-                font-size: 28px;
+                font-size: 32px;
             }
         }
     }

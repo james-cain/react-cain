@@ -1,13 +1,12 @@
 import * as Notice from './action-type';
 import API from '@/api/api';
 
-export const getNoticeList = () => {
+export const initNotice = () => {
     console.log('get notice list .....');
     // 返回函数，异步dispatch
     return async dispatch => {
         try {
             let result = await API.getNotice();
-            console.log(result)
             dispatch({
                 type: Notice.SETNOTICE,
                 data: result

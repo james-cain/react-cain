@@ -1,0 +1,7 @@
+@import (less, reference) "../../style/mixin.css";
+
+.creditcard-guide {
+    img {
+        width: 100%;
+    }
+}

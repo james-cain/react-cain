@@ -1,0 +1,16 @@
+@import (less, reference) "../../style/mixin.css";
+
+.soon-nav {
+    background-color: #fff;
+    width: 100%;
+    position: relative;
+    img {
+        position: absolute;
+        text-align: center;
+        width: 300px;
+        height: 300px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

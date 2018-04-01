@@ -207,6 +207,29 @@ class API extends Server {
             throw err;
         }
     }
+
+    /**
+     * 返回下单
+     *  
+     */
+    async getUpgrade(params = {}) {
+        try {
+            let result = await this.axios('post', '/api/user/upgrade/wechatpay/json', params);
+            if (result) {
+                return result.data;
+            } else {
+                let err = {
+                    tip: '获取权限信息失败',
+                    response: result,
+                    data: params,
+                    url: '/api/user/upgrade/wechatpay/json'
+                }
+                throw err;
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
 }
 
 export default new API();

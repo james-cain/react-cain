@@ -9,9 +9,6 @@ export const notice = (data = defaultData, action = {}) => {
         case Notice.GETNOTICE:
             return data.noticeList;
         case Notice.SETNOTICE:
-            console.log('set notice .....')
-            console.log(action.data)
-            console.log('.....');
             const dataStore = {...data, ...{noticeList: action.data}};
             return dataStore;
         default:
