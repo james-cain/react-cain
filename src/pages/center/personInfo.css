@@ -17,10 +17,33 @@
             border-radius: 50%;
         }
         &-name {
-            width: 600px;
+            width: 420px;
             font-size: 36px;
             color: #fff;
             margin-left: 10px; 
+        }
+        .upgrade {
+            /* position: absolute; */
+            width: 194px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 28px;
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+            background-color: rgba(0, 0, 0, .1);
+            color: #fff;
+            .flex;
+            .iconKing {
+                width: 50px;
+                font-size: 19px;
+                text-align: center;
+            }
+            span {
+                flex: 1;
+            }
+            .iconArrow {
+                font-size: 28px;
+            }
         }
     }
 }

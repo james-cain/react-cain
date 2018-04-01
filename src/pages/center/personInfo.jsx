@@ -89,6 +89,14 @@ class PersonInfo extends React.Component {
                 <div className="person-info__top">
                     <img src={this.props.user.userInfo.UserPosterUrl} alt="" />
                     <div className="person-info__top-name">{this.props.user.userInfo.UserName}</div>
+                    <div className="upgrade" onClick={() => this.props.history.push('/upgrade')}>
+                        <i className="iconKing iconfont icon-kaitonghuiyuanyuan"></i>
+                        <span>
+                            专员申请
+                            <i className="iconArrow iconfont icon-youjiantou"></i>
+                        </span>
+                        
+                    </div>
                 </div>
                 <Title titleName="提交个人申请资料" />
                 <form>

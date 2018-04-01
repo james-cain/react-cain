@@ -13,6 +13,7 @@ const personInfo = LoadableComponent(() => import("@/pages/center/personInfo"));
 const SettlementCard = LoadableComponent(() => import("@/pages/center/settlement-card"));
 const orderManage = LoadableComponent(() => import("@/pages/center/order-manage"));
 const Notice = LoadableComponent(() => import("@/pages/notice/notice"));
+const upgrade = LoadableComponent(() => import("@/pages/center/upgrade"));
 
 export default class RouteConfig extends React.Component {
   render() {
@@ -29,6 +30,7 @@ export default class RouteConfig extends React.Component {
           <Route path="/SettlementCard" component={SettlementCard} />
           <Route path="/orderManage" component={orderManage} />
           <Route path="/notice" component={Notice} />
+          <Route path="/upgrade" component={upgrade} />
           <Redirect to="/" />
         </Switch>
       </HashRouter>
