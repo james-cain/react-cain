@@ -58,7 +58,7 @@ class Notice extends React.Component {
 const convertUnitTimeToDate = (notice) => {
     if (notice.noticeList) {
         notice.noticeList.map((item) => {
-            item.NoticeTime = new Date(item.NoticeTime*1000).toString();
+            return item.NoticeTime = new Date(item.NoticeTime*1000).toString();
         });
     }
     return notice;

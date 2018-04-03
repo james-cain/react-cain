@@ -81,6 +81,9 @@
             &-big {
                 font-size: 44px;
                 margin-top: 20px;
+                span {
+                    float: left;
+                }
             }
             &-small {
                 font-size: 30px;
@@ -94,6 +97,7 @@
         }
         &__bottom {
             .flex;
+            padding: 0 160px;
         }
         &__flex {
             flex: 1;
@@ -104,10 +108,10 @@
             box-sizing: border-box;
         }
         &__left {
-            padding-left: 76px;
+            text-align: center;
         }
         &__right {
-            padding-left: 39px;
+            text-align: center;
         }
         &__btn {
             color: #ed4143;
@@ -118,6 +122,8 @@
             border: 2px solid #ed4143;
             background-color: #fff;
             margin-left: 20px;
+            float: left;
+            margin-top: 5px;
         }
     }
     .center-bottom {
@@ -127,4 +133,8 @@
 
 .cain-modal.am-modal-transparent {
     width: 7rem !important;
+}
+
+.center-nav .am-grid.am-grid-square .am-grid-item .am-grid-item-inner-content .am-grid-icon {
+    width: 46%!important;
 }

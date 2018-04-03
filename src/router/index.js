@@ -15,6 +15,8 @@ const orderManage = LoadableComponent(() => import("@/pages/center/order-manage"
 const Notice = LoadableComponent(() => import("@/pages/notice/notice"));
 const upgrade = LoadableComponent(() => import("@/pages/center/upgrade"));
 const upgradeConfirm = LoadableComponent(() => import("@/pages/center/upgrade-confirm"));
+const upgradeRule = LoadableComponent(() => import("@/pages/center/upgrade-rule"));
+const share = LoadableComponent(() => import("@/pages/center/share"));
 const applyCreditCardGuide = LoadableComponent(() => import("@/pages/apply_credit_card/apply-credit-card-guide"));
 const soon = LoadableComponent(() => import("@/pages/developing/soon"));
 
@@ -35,6 +37,8 @@ export default class RouteConfig extends React.Component {
           <Route path="/notice" component={Notice} />
           <Route path="/upgrade" component={upgrade} />
           <Route path="/upgradeConfirm" component={upgradeConfirm} />
+          <Route path="/upgradeRule" component={upgradeRule} />
+          <Route path="/share" component={share} />
           <Route path="/applyCreditCardGuide" component={applyCreditCardGuide} />
           <Route path="/soon" component={soon} />
           <Redirect to="/" />

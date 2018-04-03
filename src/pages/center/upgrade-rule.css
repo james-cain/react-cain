@@ -1,0 +1,8 @@
+@import (less, reference) "../../style/mixin.css";
+
+.upgrade-rule-nav {
+    background-color: #fff;
+    img {
+        width: 100%;
+    }
+}

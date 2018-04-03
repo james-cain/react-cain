@@ -3,12 +3,12 @@ import * as upgradeInfo from './action-type';
 let defaultState = {
     stepsList: [
         {
-            id: 0,
+            id: 1000,
             selected: true,
             name: '普卡'
         },
         {
-            id: 1,
+            id: 3,
             selected: false,
             name: '金卡'
         },
@@ -18,12 +18,12 @@ let defaultState = {
             name: '白金卡'
         },
         {
-            id: 3,
+            id: 1,
             selected: false,
             name: '钻石卡'
         },
         {
-            id: 4,
+            id: 0,
             selected: false,
             name: '黑金卡'
         }
@@ -66,9 +66,19 @@ export const steps = (state = defaultState, action = {}) => {
                 }
             });
             return state;
+        case upgradeInfo.INITRULES:
+            let stateBak3 = {};
+            action.steps.forEach((item) => {
+                item.selected = false;
+            });
+            let stepBak = action.steps.filter((item) => {
+                return item.UserLevel !== 1000;
+            })
+            stateBak3.rules = stepBak.reverse();
+            return Object.assign({}, state, stateBak3);
         case upgradeInfo.SETRULES:
             const stateBak = state.rules.forEach((item) => {
-                if (item.id === action.rulesId) {
+                if (item.UserLevel === action.rulesId) {
                     item.selected = true;
                 } else {
                     item.selected = false;

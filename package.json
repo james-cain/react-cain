@@ -45,6 +45,7 @@
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",
     "prop-types": "^15.6.0",
+    "qrcode.react": "^0.8.0",
     "raf": "3.4.0",
     "rc-form": "^2.1.7",
     "react": "^16.2.0",

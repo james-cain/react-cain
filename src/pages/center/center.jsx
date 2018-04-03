@@ -37,23 +37,26 @@ class Center extends React.Component {
         const userInfo = this.props.userInfo.userInfo ? this.props.userInfo.userInfo : {};
         console.log(this.props.userInfo);
         const list = [{
+            icon: '/static/images/center_menu/my_team.png',
+            text: '我的团队'
+        }, {
+            icon: '/static/images/center_menu/my_rank.png',
+            text: '我的排行'
+        }, {
             icon: '/static/images/center_menu/bill_manager.png',
             text: '订单管理'
         }, {
             icon: '/static/images/center_menu/information.png',
             text: '个人信息'
         }, {
-            icon: '/static/images/center_menu/mod_card.png',
-            text: '修改结算卡'
-        }, {
-            icon: '/static/images/center_menu/client.png',
-            text: '专属客服'
+            icon: '/static/images/center_menu/share.png',
+            text: '分享中心'
         }, {
             icon: '/static/images/center_menu/sys_broadcast.png',
             text: '系统公告'
         }, {
-            icon: '/static/images/center_menu/update_info.png',
-            text: '更新资料'
+            icon: '/static/images/center_menu/client.png',
+            text: '专属客服'
         }, {
             icon: '/static/images/center_menu/introduction.png',
             text: '新手指引'
@@ -108,8 +111,11 @@ class Center extends React.Component {
             case '系统公告':
                 this.props.history.push('/notice');
                 break;
+            case '分享中心':
+                this.props.history.push('/share');
+                break;
             default:
-                this.props.history.push('/');
+                this.props.history.push('/soon');
                 break;
         }
     }
@@ -132,32 +138,37 @@ class Center extends React.Component {
                             <i className="iconfont icon-iconfontwenhao" onClick={this.showModal('modalOpen')}></i>
                         </div>
                         {/* <div className="center-top__total-benefit">+0</div> */}
-                        <div className="center-top__total-benefit">+{this.state.user.UserTotalBenefit ? this.state.user.UserTotalBenefit : 0}</div>
+                        <div className="center-top__total-benefit">+{this.state.user.UserTotalBenefit ? 1 * this.state.user.UserTotalBenefit / 100 : 0}</div>
                     </div>
                 </div>
                 <div className="center-middle">
                     <div className="center-middle__top">
                         <div className="center-middle__title">可提现总额（元）</div>
                         <div className="center-middle__money-big">
-                            {this.state.user.UserShareBenefitMoney && this.state.user.UserRedPaperMoney ? (this.state.user.UserShareBenefitMoney + this.state.user.UserRedPaperMoney) : 0}
+                            <span>{this.state.user.UserShareBenefitMoney ? 1 * this.state.user.UserShareBenefitMoney / 100 : 0}</span>
+                            <button className="center-middle__btn">提现</button>
                         </div>
                     </div>
-                    <div className="center-middle__bottom">
+                    <div className="center-middle__top">
+                        <div className="center-middle__title">下级会员所得（元）</div>
+                        <div className="center-middle__money-big">
+                            <span>{this.state.user.UserShareBenefitMoney ? 1 * this.state.user.UserShareBenefitMoney / 100 : 0}</span>
+                        </div>
+                    </div>
+                    {/* <div className="center-middle__bottom">
                         <div className="center-middle__flex center-middle__left">
-                            <div className="center-middle__title">分润账户（元）</div>
+                            <div className="center-middle__title">直推</div>
                             <div className="center-middle__money-small">
                                 <div>{this.state.user.UserShareBenefitMoney ? this.state.user.UserShareBenefitMoney : 0}</div>
-                                <button className="center-middle__btn">提现</button>
                             </div>
                         </div>
                         <div className="center-middle__flex center-middle__right">
-                            <div className="center-middle__title">红包账户（元）</div>
+                            <div className="center-middle__title">间接</div>
                             <div className="center-middle__money-small">
                                 <div>{this.state.user.UserRedPaperMoney ? this.state.user.UserRedPaperMoney : 0}</div>
-                                <button className="center-middle__btn">提现</button>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="center-bottom">
                     <Grid data={this.state.menu} hasLine={false} onClick={this.jumpToCenterSubPage} />

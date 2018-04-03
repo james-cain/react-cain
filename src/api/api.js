@@ -1,6 +1,28 @@
 ﻿import Server from './server';
 
 class API extends Server {
+    /**
+     * 获取会员信息
+     *
+     */
+    async getUserlevel(params = {}) {
+        try {
+            let result = await this.axios('get', '/api/userlevel/json/', params);
+            if (result && result.code === 0) {
+                return result.data;
+            } else {
+                let err = {
+                    tip: '获取会员等级信息失败',
+                    response: result,
+                    data: params,
+                    url: '/api/userlevel/json/'
+                }
+                throw err;
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
 
     async getNotice(params = {}) {
         try {
