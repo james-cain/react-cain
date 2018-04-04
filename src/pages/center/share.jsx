@@ -4,9 +4,23 @@ import { Carousel } from 'antd-mobile';
 import './share.css';
 let QRCode = require('qrcode.react');
 
+function QrcodeNav (props) {
+    return (
+        <div className={props.classNameList} style={{height: `${props.navHeight}px`}}>
+            <img className="qrcode-nav__avatar" src={props.userInfo.UserPosterUrl} alt="" />
+            <div className="qrcode-nav__info">
+                <span>{props.userInfo.UserName}</span>
+                <span style={{'marginLeft': '10px'}}>编号：</span>
+                <span>{props.userInfo.UserNo}</span>
+            </div>
+            <QRCode value={props.qrcodeUrl} size={100} />
+        </div>
+    );
+}
 class Share extends React.Component {
     state = {
-        height: 0
+        height: 0,
+        qrcodeNumber:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     }
     componentDidMount() {
         this.setState({
@@ -24,36 +38,17 @@ class Share extends React.Component {
                     // autoplay
                     infinite
                     >
-                    <div className="qrcode-nav qrcode-nav-1" style={{height: `${this.state.height}px`}}>
-                        <QRCode value={`http://m.91kgxy.com/login?userid=${this.props.user.userInfo.UserId}`} size={100} />
-                    </div>
-                    <div className="qrcode-nav qrcode-nav-2" style={{height: `${this.state.height}px`}}>
-                        <QRCode value={`http://m.91kgxy.com/login?userid=${this.props.user.userInfo.UserId}`} size={100} />
-                    </div>
-                    <div className="qrcode-nav qrcode-nav-3" style={{height: `${this.state.height}px`}}>
-                        <QRCode value={`http://m.91kgxy.com/login?userid=${this.props.user.userInfo.UserId}`} size={100} />
-                    </div>
-                    <div className="qrcode-nav qrcode-nav-4" style={{height: `${this.state.height}px`}}>
-                        <QRCode value={`http://m.91kgxy.com/login?userid=${this.props.user.userInfo.UserId}`} size={100} />
-                    </div>
-                    <div className="qrcode-nav qrcode-nav-5" style={{height: `${this.state.height}px`}}>
-                        <QRCode value={`http://m.91kgxy.com/login?userid=${this.props.user.userInfo.UserId}`} size={100} />
-                    </div>
-                    <div className="qrcode-nav qrcode-nav-6" style={{height: `${this.state.height}px`}}>
-                        <QRCode value={`http://m.91kgxy.com/login?userid=${this.props.user.userInfo.UserId}`} size={100} />
-                    </div>
-                    <div className="qrcode-nav qrcode-nav-7" style={{height: `${this.state.height}px`}}>
-                        <QRCode value={`http://m.91kgxy.com/login?userid=${this.props.user.userInfo.UserId}`} size={100} />
-                    </div>
-                    <div className="qrcode-nav qrcode-nav-8" style={{height: `${this.state.height}px`}}>
-                        <QRCode value={`http://m.91kgxy.com/login?userid=${this.props.user.userInfo.UserId}`} size={100} />
-                    </div>
-                    <div className="qrcode-nav qrcode-nav-9" style={{height: `${this.state.height}px`}}>
-                        <QRCode value={`http://m.91kgxy.com/login?userid=${this.props.user.userInfo.UserId}`} size={100} />
-                    </div>
-                    <div className="qrcode-nav qrcode-nav-10" style={{height: `${this.state.height}px`}}>
-                        <QRCode value={`http://m.91kgxy.com/login?userid=${this.props.user.userInfo.UserId}`} size={100} />
-                    </div>
+                    {
+                        this.state.qrcodeNumber.map((val) => 
+                            <QrcodeNav
+                                key={val}
+                                classNameList={`qrcode-nav qrcode-nav-${val}`} 
+                                navHeight={this.state.height}
+                                userInfo={this.props.user.userInfo}
+                                qrcodeUrl={`${window.location.origin}/login?userid=${this.props.user.userInfo.UserId}`}
+                            />
+                        )
+                    }
                 </Carousel>
             </div>
         )
