@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Modal, Toast } from 'antd-mobile';
 import { getGrandUserInfo } from '@/store/info/action';
+import Back from '@/components/back/back';
 import './exclusive-service.css';
 
 class ExclusiveService extends React.Component {
@@ -78,6 +79,7 @@ class ExclusiveService extends React.Component {
             <button class="modal-nav__btn">复制微信号</button>
           </div>
         </Modal>
+        <Back />
       </div>
     )
   }

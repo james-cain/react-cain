@@ -1,0 +1,27 @@
+@import (less, reference) "../../style/mixin.css";
+
+.back-tooltip {
+    height: 186px;
+    width: 90px;
+    position: fixed;
+    bottom: 106px;
+    right: 28px;
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+            &:first-child {
+                margin-bottom: 6px;
+            }
+            img {
+                height: 90px;
+                width: 90px;
+                position: relative;
+            }
+        }
+    }
+}

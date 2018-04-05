@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Back from '@/components/back/back';
 import './notice-details.css';
 import { getNoticeByNo } from '@/store/notice/action';
 
@@ -27,6 +28,7 @@ class NoticeDetails extends React.Component {
             <div className='image'>
               <img src={this.state.noticeItem.NoticeImageUrl} />
             </div>
+            <Back />
           </div>
         );
     }

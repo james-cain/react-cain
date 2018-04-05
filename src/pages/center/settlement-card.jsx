@@ -5,6 +5,7 @@ import { Picker, List, Toast, InputItem, Button } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import { getUserInfo, setUserInfo } from '@/store/info/action';
 import API from '@/api/api';
+import Back from '@/components/back/back';
 import { district } from '../../utils/districtData'
 import { banks } from '../../utils/banksData'
 
@@ -190,6 +191,7 @@ class SettlementCard extends React.Component {
             </Item>
           </List>
         </form>
+        <Back />
       </div>
     );
   }

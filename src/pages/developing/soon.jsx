@@ -1,4 +1,5 @@
 import React from 'react';
+import Back from '@/components/back/back';
 import './soon.css';
 
 class Soon extends React.Component {
@@ -16,6 +17,7 @@ class Soon extends React.Component {
         return (
             <div className="soon-nav" style={{height: `${this.state.height}px`}}>
                 <img src={require("../../assets/svg/comeUpSoon.svg")} alt="" />
+                <Back />
             </div>
         )
     }

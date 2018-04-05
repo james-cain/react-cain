@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { WhiteSpace, Toast, Modal, Badge } from 'antd-mobile';
 import API from '@/api/api';
+import Back from '@/components/back/back';
 import './apply-credit-card-submit.css';
 import MD5 from '../../utils/md5'
 
@@ -229,6 +230,7 @@ class ApplyCreditCardSubmit extends React.Component {
                 </div>
                 <WhiteSpace size="xs" />
                 <Title titleName="已保存的申请人信息" />
+                <Back />
             </div>
         );
     }

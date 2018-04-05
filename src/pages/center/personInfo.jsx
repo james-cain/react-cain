@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { List, InputItem, Button, Picker, Toast } from 'antd-mobile';
 // import { district } from '../../utils/districtData';
 import { setUserInfo } from '@/store/info/action';
+import Back from '@/components/back/back';
 import API from '@/api/api';
 import { createForm } from 'rc-form';
 // import Immutable from 'immutable';
@@ -165,6 +166,7 @@ class PersonInfo extends React.Component {
                         </Picker> */}
                     </List>
                 </form>
+                <Back />
             </div>
         );
     }

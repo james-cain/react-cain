@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { List } from 'antd-mobile';
 import PropTypes from 'prop-types';
+import Back from '@/components/back/back';
 import { initNotice } from '@/store/notice/action';
 import './notice.css';
 
@@ -50,6 +51,7 @@ class Notice extends React.Component {
                   })
                 }
               </List>
+              <Back />
             </div>
         );
     }

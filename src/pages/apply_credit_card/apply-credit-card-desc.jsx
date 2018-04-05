@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Back from '@/components/back/back';
 import './apply-credit-card-desc.css';
 
 class ApplyCraditCardDesc extends React.Component {
@@ -42,6 +43,7 @@ class ApplyCraditCardDesc extends React.Component {
                         onClick={() => this.props.history.push(`/applyCreditCardSubmit/${this.state.id}`)}
                         >我要申请</button>
                 </div>
+                <Back />
             </div>
         )
     }

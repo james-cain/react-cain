@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Tabs } from 'antd-mobile';
 import { getCreditcardorders } from '@/store/orders/action';
 import TabsControl from '@/components/Tabs/tabControl.jsx';
+import Back from '@/components/back/back';
 import './order-manage.css';
 
 class OrderManage extends React.Component {
@@ -165,6 +166,7 @@ class OrderManage extends React.Component {
                         </Tabs>
                     </div>
                 </TabsControl>
+                <Back />
             </div>
         );
     }
