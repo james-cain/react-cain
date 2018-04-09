@@ -26,11 +26,11 @@ class Team extends React.Component {
                 <ul className="team-ul">
                     <li className={this.state.selected === 0 ? 'selected' : ''} onClick={(e) => this.changeTab(0, e)}>
                         <div className="team-title">直推</div>
-                        <div className="team-num">{this.props.team ? this.props.team.teamChild.length : 0}人</div>
+                        <div className="team-num">{this.props.team ? this.props.team.childTeam.length : 0}人</div>
                     </li>
                     <li className={this.state.selected === 1 ? 'selected' : ''} onClick={(e) => this.changeTab(1, e)}>
                         <div className="team-title">间接</div>
-                        <div className="team-num">{this.props.team ? this.props.team.teamGrandChild.length : 0}人</div>
+                        <div className="team-num">{this.props.team ? this.props.team.grandChildTeam.length : 0}人</div>
                     </li>
                 </ul>
                 {
@@ -43,11 +43,11 @@ class Team extends React.Component {
                                 <td>注册时间</td>
                             </tr>
                             {
-                                this.props.team.teamChild.map((item) => 
+                                this.props.team.childTeam.map((item) => 
                                     <tr className="data-grid-data" >
                                         <td>{item.UserPhone ? item.UserPhone : item.UserName}</td>
-                                        <td>普卡会员</td>
-                                        <td>{item.UserAddTime}</td>
+                                        <td>{item.levelName}</td>
+                                        <td>{item.UserAddTimeFormat}</td>
                                     </tr>
                                 )
                             }
@@ -64,11 +64,11 @@ class Team extends React.Component {
                                 <td>注册时间</td>
                             </tr>
                             {
-                                this.props.team.teamGrandChild.map((item) => 
+                                this.props.team.grandChildTeam.map((item) => 
                                     <tr className="data-grid-data" >
                                         <td>{item.UserPhone ? item.UserPhone : item.UserName}</td>
-                                        <td>普卡会员</td>
-                                        <td>{item.UserAddTime}</td>
+                                        <td>{item.levelName}</td>
+                                        <td>{item.UserAddTimeFormat}</td>
                                     </tr>
                                 )
                             }
@@ -83,7 +83,7 @@ class Team extends React.Component {
 }
 
 export default connect(state => ({
-    team: state.teamInfo
+    team: state.team
 }), {
     getTeam,
 })(Team);

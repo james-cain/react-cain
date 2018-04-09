@@ -53,9 +53,10 @@ class UpgradeConfirm extends React.Component {
                 package: payInfo.package,
                 signType: payInfo.signType,
                 paySign: payInfo.paySign,
-                success: function (res) {
+                success: (res) => {
                     // 支付成功后的回调函数
                     console.log(res);
+                    this.props.history.goBack(-2);
                 }
             });
         }).catch((err) => {
