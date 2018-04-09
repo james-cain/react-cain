@@ -1,0 +1,54 @@
+@import (less, reference) "../../style/mixin.css";
+
+.team-nav {
+    ul {
+        height: 140px;
+        width: 100%;
+        .flex;
+        background-color: #fff;
+        li {
+            flex: 1;
+            list-style: none;
+            float: left;
+            text-align: center;
+            background-color: #da251d;
+            color: #fff;
+            padding: 28px 0;
+            &.selected {
+                background-color: #fff;
+                color: #da251d;
+            }
+        }
+        .team-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .team-num {
+            font-size: 38px;
+        }
+    }
+    .data-grid-title {
+        height: 60px;
+        width: 100%;
+        background-color: #dededd;
+        font-size: 26px;
+        color: #040907;
+        line-height: 60px;
+        .flex;
+        td {
+            flex: 1;
+        }
+    }
+    .data-grid-data {
+        height: 60px;
+        width: 100%;
+        border-radius: #dededd;
+        font-size: 26px;
+        color: #040907;
+        line-height: 60px;
+        .flex;
+        td {
+            flex: 1;
+        }
+    }
+}
