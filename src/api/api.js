@@ -252,6 +252,28 @@ class API extends Server {
             throw err;
         }
     }
+
+    /**
+     *  返回直推和间接下级 
+     */
+    async getTeam(params = {}) {
+        try {
+            let result = await this.axios('get', '/api/user/json/children');
+            if (result) {
+                return result.data;
+            } else {
+                let err = {
+                    tip: '获取直推和间接下级信息失败',
+                    response: result,
+                    data: params,
+                    url: '/api/user/json/children'
+                }
+                throw err;
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
 }
 
 export default new API();

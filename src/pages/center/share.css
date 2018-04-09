@@ -1,66 +1,14 @@
 @import (less, reference) "../../style/mixin.css";
 
-.my-carousel {
-    background: #DEF1E5;
-    overflow: hidden;
-    visibility: visible !important;
-    .slider-frame {
-        overflow: visible !important;
-    }
-    .qrcode-nav {
-        position: relative;
-        background-size: 100% 100%;
-        background-repeat: no-repeat; 
-        &__avatar {
-            position: absolute;
-            width: 128px;
-            height: 128px;
-            top: 20px;
-            left: 156px;
-            border-radius: 50%;
+.qrcode-list {
+    .flex(left, left);
+    flex-wrap: wrap;
+    .qrcode-item {
+        width: 33.333333%;
+        height: 400px;
+        img {
+            height: 100%;
+            width: 100%;
         }
-        &__info {
-            position: absolute;
-            color: #0e0e0e;
-            font-weight: bold;
-            font-size: 26px;
-            left: 120px;
-            top: 154px;
-        }
-    }
-    .qrcode-nav-1 {
-        background-image: url('/static/images/share/share_material_1.png');
-    }
-    .qrcode-nav-2 {
-        background-image: url('/static/images/share/share_material_2.png');
-    }
-    .qrcode-nav-3 {
-        background-image: url('/static/images/share/share_material_3.png');
-    }
-    .qrcode-nav-4 {
-        background-image: url('/static/images/share/share_material_4.png');
-    }
-    .qrcode-nav-5 {
-        background-image: url('/static/images/share/share_material_5.png');
-    }
-    .qrcode-nav-6 {
-        background-image: url('/static/images/share/share_material_6.png');
-    }
-    .qrcode-nav-7 {
-        background-image: url('/static/images/share/share_material_7.png');
-    }
-    .qrcode-nav-8 {
-        background-image: url('/static/images/share/share_material_8.png');
-    }
-    .qrcode-nav-9 {
-        background-image: url('/static/images/share/share_material_9.png');
-    }
-    .qrcode-nav-10 {
-        background-image: url('/static/images/share/share_material_10.png');
-    }
-    canvas {
-        position: absolute;
-        top: 44px;
-        right: 44px;
     }
 }

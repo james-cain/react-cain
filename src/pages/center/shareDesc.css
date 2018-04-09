@@ -1,0 +1,84 @@
+@import (less, reference) "../../style/mixin.css";
+
+.qrcode {
+  .qrcode-nav {
+    position: relative;
+    background-size: 100%;
+    background-repeat: no-repeat; 
+    &__avatar {
+        position: absolute;
+        width: 58px;
+        height: 58px;
+        top: 200px;
+        left: 164px;
+        border-radius: 50%;
+    }
+    &__info {
+        position: absolute;
+        height: 58px;
+        color: #313131;
+        font-weight: bold;
+        font-size: 18px;
+        left: 250px;
+        top: 200px;
+        &-username {
+          margin: 10px 0;
+        }
+    }
+  }
+  .qrcode-nav-1 {
+    background-image: url('/static/images/share/share_big_1.png');
+  }
+  .qrcode-nav-2 {
+    background-image: url('/static/images/share/share_big_2.png');
+  }
+  .qrcode-nav-3 {
+    background-image: url('/static/images/share/share_big_3.png');
+  }
+  .qrcode-nav-4 {
+    background-image: url('/static/images/share/share_big_4.png');
+  }
+  .qrcode-nav-5 {
+    background-image: url('/static/images/share/share_big_5.png');
+  }
+  .qrcode-nav-6 {
+    background-image: url('/static/images/share/share_big_6.png');
+  }
+  .qrcode-nav-7 {
+    background-image: url('/static/images/share/share_big_7.png');
+  }
+  .qrcode-nav-8 {
+    background-image: url('/static/images/share/share_big_8.png');
+  }
+  .qrcode-nav-9 {
+    background-image: url('/static/images/share/share_big_9.png');
+  }
+  .qrcode-nav-10 {
+    background-image: url('/static/images/share/share_big_10.png');
+  }
+  .qrcode-nav-11 {
+    background-image: url('/static/images/share/share_big_11.png');
+  }
+  .qrcode-nav-12 {
+    background-image: url('/static/images/share/share_big_12.png');
+  }
+  .qrcode-nav-13 {
+    background-image: url('/static/images/share/share_big_13.png');
+  }
+  .qrcode-nav-14 {
+    background-image: url('/static/images/share/share_big_14.png');
+  }
+  .qrcode-nav-15 {
+    background-image: url('/static/images/share/share_big_15.png');
+  }
+  .qrcode-nav-16 {
+    background-image: url('/static/images/share/share_big_16.png');
+  }
+  canvas {
+    position: absolute;
+    top: 36px;
+    left: 208px;
+    width: 110px!important;
+    height: 110px!important;
+  }
+}

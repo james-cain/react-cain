@@ -8,6 +8,7 @@ import * as applyCreditCardData from './apply_credit_card/reducer';
 import * as orders from './orders/reducer';
 import * as notice from './notice/reducer';
 import * as steps from './upgrade/reducer';
+import * as team from './team/reducer';
 import thunk from 'redux-thunk';
 
 let store = createStore(
@@ -21,6 +22,7 @@ let store = createStore(
     ...orders,
     ...notice,
     ...steps,
+    ...team,
   }),
   applyMiddleware(thunk)
 );

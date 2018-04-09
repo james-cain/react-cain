@@ -116,6 +116,9 @@ class Center extends React.Component {
             case '分享中心':
                 this.props.history.push('/share');
                 break;
+            case '我的团队':
+                this.props.history.push('/team');
+                break;
             default:
                 this.props.history.push('/soon');
                 break;

@@ -1,7 +1,7 @@
 @import (less, reference) "../../style/mixin.css";
 
 .team-nav {
-    ul {
+    .team-ul {
         height: 140px;
         width: 100%;
         .flex;
@@ -12,11 +12,13 @@
             float: left;
             text-align: center;
             background-color: #da251d;
-            color: #fff;
+            color: #ffb4ae;
             padding: 28px 0;
+            &:first-child {
+                border-right: 2px solid #fff;
+            }
             &.selected {
-                background-color: #fff;
-                color: #da251d;
+                color: #ebfeff;
             }
         }
         .team-title {
@@ -26,6 +28,10 @@
         .team-num {
             font-size: 38px;
         }
+    }
+    .data-grid-table {
+        width: 100%;
+        text-align: center;
     }
     .data-grid-title {
         height: 60px;
@@ -37,18 +43,21 @@
         .flex;
         td {
             flex: 1;
+            border: 0px;
         }
     }
     .data-grid-data {
         height: 60px;
         width: 100%;
-        border-radius: #dededd;
+        border-bottom: 1px solid #dededd;
+        background-color: #fff;
         font-size: 26px;
         color: #040907;
         line-height: 60px;
         .flex;
         td {
             flex: 1;
+            border: 0px;
         }
     }
 }
