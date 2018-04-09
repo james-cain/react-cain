@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Toast } from 'antd-mobile';
 import { withRouter } from 'react-router-dom';
+import Back from '@/components/back/back';
 import { setUpgrade, setRules, deleteSelectedRules, getUserlevel } from '@/store/upgrade/action';
 import './upgrade.css';
 
@@ -110,6 +111,7 @@ class Upgrade extends React.Component {
                         <button className="upgrade-btn" onClick={this.jumpToUpgradeConfirm}>立即升级</button>
                     </div>
                 </div>
+                <Back />
             </div>
         );
     }

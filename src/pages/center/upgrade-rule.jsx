@@ -1,4 +1,5 @@
 import React from 'react';
+import Back from '@/components/back/back';
 import './upgrade-rule.css';
 
 class UpgradeRule extends React.Component {
@@ -9,6 +10,7 @@ class UpgradeRule extends React.Component {
         return (
             <div className="upgrade-rule-nav">
                 <img src="/static/images/upgrade/upgrade_rules.png" alt="" />
+                <Back />
             </div>
         )
     }

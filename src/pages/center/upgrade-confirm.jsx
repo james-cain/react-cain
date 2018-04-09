@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Toast } from 'antd-mobile';
 import { getGrandUserInfo } from '@/store/info/action';
 import WeApi from '../../utils/wechat';
+import Back from '@/components/back/back';
 import './upgrade-confirm.css';
 
 class UpgradeConfirm extends React.Component {
@@ -103,6 +104,7 @@ class UpgradeConfirm extends React.Component {
                         <button className="apply-btn" onClick={this.pay}>立即支付</button>
                     </div>
                 </div>
+                <Back />
             </div>
         )
     }

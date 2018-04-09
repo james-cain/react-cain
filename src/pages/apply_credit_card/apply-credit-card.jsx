@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
 // import { is, fromJS } from 'immutable';
 import PropTypes from 'prop-types';
+import Back from '@/components/back/back';
 import { getApplyCreditCardData, getCardData, setApplyCreditCardData } from '@/store/apply_credit_card/action';
 import './apply-credit-card.css';
 
@@ -90,6 +91,7 @@ class ApplyCreditCard extends React.Component {
                         }
                     </Flex>
                 </div>
+                <Back />
             </div>
         );
     }

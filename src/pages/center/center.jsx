@@ -5,7 +5,9 @@ import { Modal, Grid } from 'antd-mobile';
 // import { is, fromJS } from 'immutable';
 import PropTypes from 'prop-types';
 import { getUserInfo } from '@/store/info/action';
+import Back from '@/components/back/back';
 import './center.css';
+import '@/components/back/back.css';
 
 function closest(el, selector) {
     const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelctor || el.msMathesSelector;
@@ -173,6 +175,7 @@ class Center extends React.Component {
                 <div className="center-bottom">
                     <Grid data={this.state.menu} hasLine={false} onClick={this.jumpToCenterSubPage} />
                 </div>
+                <Back />
                 <Modal
                     className="cain-modal"
                     visible={this.state.modalOpen}
