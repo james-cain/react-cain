@@ -19,6 +19,7 @@ const upgradeRule = LoadableComponent(() => import("@/pages/center/upgrade-rule"
 const share = LoadableComponent(() => import("@/pages/center/share"));
 const shareDesc = LoadableComponent(() => import("@/pages/center/shareDesc"));
 const team = LoadableComponent(() => import("@/pages/center/team"));
+const rank = LoadableComponent(() => import("@/pages/center/rank"));
 const applyCreditCardGuide = LoadableComponent(() => import("@/pages/apply_credit_card/apply-credit-card-guide"));
 const soon = LoadableComponent(() => import("@/pages/developing/soon"));
 
@@ -43,6 +44,7 @@ export default class RouteConfig extends React.Component {
           <Route path="/share" component={share} />
           <Route path="/shareDesc/:id" component={shareDesc} />
           <Route path="/team" component={team} />
+          <Route path="/rank" component={rank} />
           <Route path="/applyCreditCardGuide" component={applyCreditCardGuide} />
           <Route path="/soon" component={soon} />
           <Redirect to="/" />

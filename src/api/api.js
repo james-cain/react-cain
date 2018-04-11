@@ -274,6 +274,28 @@ class API extends Server {
             throw err;
         }
     }
+
+    /**
+     *  返回排行数据 
+     */
+    async getRank(params = {}) {
+        try {
+            let result = await this.axios('get', '/api/user/json/childrenrank');
+            if (result) {
+                return result.data;
+            } else {
+                let err = {
+                    tip: '获取排行数据 信息失败',
+                    response: result,
+                    data: params,
+                    url: '/api/user/json/childrenrank'
+                }
+                throw err;
+            }
+        } catch (err) {
+            throw err;
+        }
+    }
 }
 
 export default new API();

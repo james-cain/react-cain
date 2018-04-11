@@ -9,6 +9,7 @@ import * as orders from './orders/reducer';
 import * as notice from './notice/reducer';
 import * as steps from './upgrade/reducer';
 import * as team from './team/reducer';
+import * as rank from './rank/reducer';
 import thunk from 'redux-thunk';
 
 let store = createStore(
@@ -23,6 +24,7 @@ let store = createStore(
     ...notice,
     ...steps,
     ...team,
+    ...rank,
   }),
   applyMiddleware(thunk)
 );

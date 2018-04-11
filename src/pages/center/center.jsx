@@ -119,6 +119,9 @@ class Center extends React.Component {
             case '我的团队':
                 this.props.history.push('/team');
                 break;
+            case '我的排行':
+                this.props.history.push('/rank');
+                break;
             default:
                 this.props.history.push('/soon');
                 break;

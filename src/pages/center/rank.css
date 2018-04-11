@@ -1,0 +1,90 @@
+@import (less, reference) "../../style/mixin.css";
+
+.rank-nav {
+    background-color: #fff;
+    .rank-user-nav {
+        height: 216px;
+        width: 100%;
+        .flex;
+        flex-direction: column;
+    }
+    .rank-user_avatar {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        margin: 26px 0 14px;
+    }
+    .rank-user_name {
+        font-size: 36px;
+        height: 36px;
+        margin-bottom: 30px;
+    }
+    .rank-ul {
+        height: 140px;
+        width: 100%;
+        .flex;
+        background-color: #fff;
+        padding: 0 7px;
+        li {
+            flex: 1;
+            list-style: none;
+            float: left;
+            text-align: center;
+            padding: 0 7px;
+            height: 186px;
+        }
+        .team-title {
+            width: 232px;
+            height: 72px;
+        }
+        .team-num {
+            font-size: 26px;
+            height: 74px;
+            line-height: 74px;
+            margin: 20px 0;
+        }
+        .team-num1 {
+            color: #10848a;
+        }
+        .team-num2 {
+            color: #970e70;
+            border-left: 1px solid #e7e7e7;
+            border-right: 1px solid #e7e7e7;
+        }
+        .team-num3 {
+            color: #4a3121;
+        }
+    }
+    .data-grid-table {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .data-grid-title {
+        height: 60px;
+        width: 100%;
+        background-color: #dededd;
+        font-size: 26px;
+        color: #040907;
+        line-height: 60px;
+        .flex;
+        td {
+            flex: 1;
+            border: 0px;
+        }
+    }
+    .data-grid-data {
+        height: 60px;
+        width: 100%;
+        border-bottom: 1px solid #dededd;
+        background-color: #fff;
+        font-size: 26px;
+        color: #040907;
+        line-height: 60px;
+        .flex;
+        td {
+            flex: 1;
+            border: 0px;
+        }
+    }
+}
